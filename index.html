@@ -80,8 +80,10 @@
   .card .ic{font-size:17px;line-height:1.3;flex:none;filter:grayscale(.15);}
   .card .body{flex:1;min-width:0;}
   .card .ttl{font-weight:500;font-size:15px;letter-spacing:.01em;}
-  .card .ttl.maplink{cursor:pointer;}
-  .card .ttl.maplink::after{content:"🗺";font-size:12px;margin-left:5px;color:var(--ink3);}
+  .maptoggle{margin-top:9px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);
+    background:var(--accent-soft);border:1px solid #D3E3DE;border-radius:9px;padding:6px 11px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px;}
+  .maptoggle .chev{font-size:9px;}
   .mapbox{margin-top:9px;}
   .mapbox iframe{display:block;width:100%;height:190px;border:0;border-radius:10px;background:#EFEDE6;}
   .mapbox a{display:inline-block;margin-top:6px;font-size:12.5px;color:var(--accent);text-decoration:none;}
@@ -211,11 +213,25 @@ const SEED=[
   {kind:'stop',type:'hotel',title:'Minn Shin-Osaka（大阪）',time:'入住 15:00',detail:'10/12 → 10/13・全員會合｜2 間房 → 7 人請重算',tag:'',status:'ok',who:['all'],map:'Minn Shin-Osaka'},
 
   {kind:'day',date:'10/13',weekday:'二',dayNum:4},
-  {kind:'stop',type:'checkout',title:'Minn Shin-Osaka 退房',time:'10:00',detail:'',tag:'',status:'ok',who:['all']},
-  {kind:'move',from:'大阪',to:'金澤',mode:'train',duration:'約 2.5–3h',note:'特急雷鳥＋北陸新幹線（敦賀轉乘）',who:['all']},
-  {kind:'stop',type:'hotel',title:'SOKI KANAZAWA（金澤）',time:'入住 15:00',detail:'10/13 → 10/15｜2 間房 → 7 人請重算',tag:'',status:'ok',who:['all'],map:'SOKI KANAZAWA'},
+  {kind:'stop',type:'checkout',title:'Minn Shin-Osaka 退房',time:'07:00',detail:'趕 07:40 新大阪出發的車，前一晚先整理好行李',tag:'',status:'ok',who:['all']},
+  {kind:'move',from:'新大阪 07:40',to:'金澤 10:00',mode:'train',duration:'約 2h20m',note:'雷鳥→敦賀轉北陸新幹線・轉乘抓 9 分鐘以上',who:['all']},
+  {kind:'move',from:'金澤站',to:'SOKI KANAZAWA',mode:'taxi',duration:'約 10 分',note:'Uber・先寄放行李（步行約 15 分）',who:['all']},
+  {kind:'stop',type:'hotel',title:'SOKI KANAZAWA（金澤）',time:'寄行李 10:30／入住 15:00',detail:'10/13 → 10/15｜2 間房 → 7 人請重算',tag:'',status:'ok',who:['all'],map:'SOKI KANAZAWA'},
+  {kind:'move',from:'SOKI',to:'近江町市場',mode:'walk',duration:'約 2 分',note:'飯店就在市場正對面',who:['all']},
+  {kind:'stop',type:'meal',title:'近江町市場',time:'11:00',detail:'名店：近江町可樂餅（能登／喉黑／蟹肉奶油）・大口水產（干貝串）・近江町市場壽司／井ノ弥（海鮮丼）・近江町食堂',tag:'午餐',status:'',who:['all'],map:'近江町市場'},
+  {kind:'move',from:'近江町市場',to:'東茶屋街',mode:'bus',duration:'約 10 分',note:'城下町周遊巴士',who:['all']},
+  {kind:'stop',type:'spot',title:'東茶屋街',time:'13:00',detail:'名店：志摩（重要文化財茶屋建築）・懷華樓（金箔甜點）・箔一 東山店（金箔霜淇淋・買金箔）・烏骨雞庵（金箔霜淇淋）',tag:'',status:'',who:['all'],map:'ひがし茶屋街'},
+  {kind:'move',from:'東茶屋街',to:'兼六園下',mode:'bus',duration:'約 10 分',note:'',who:['all']},
+  {kind:'stop',type:'meal',title:'SWAY KANAZAWA 兼六園前茶屋店',time:'15:00',detail:'紺屋坂・町家改建・自家烘焙咖啡與起司蛋糕｜8:30–18:00 無公休',tag:'咖啡',status:'',who:['all'],map:'SWAY KANAZAWA 兼六園前茶屋店'},
+  {kind:'stop',type:'spot',title:'金澤城公園（五十間長屋）',time:'15:30',detail:'菱櫓・五十間長屋・橋爪門續櫓 9:00–16:30，最終入館 16:00 → 要先來這裡',tag:'',status:'',who:['all'],map:'金沢城公園'},
+  {kind:'stop',type:'spot',title:'兼六園',time:'16:45',detail:'10/15 前開園 7:00–18:00，關得比金澤城晚，排最後',tag:'',status:'',who:['all'],map:'兼六園'},
 
   {kind:'day',date:'10/14',weekday:'三',dayNum:5},
+  {kind:'move',from:'金澤 07:00',to:'立山站',mode:'train',duration:'約 1h40m',note:'北陸新幹線つるぎ自由席→富山（周遊券含）→富山地鐵立山線（券外）',who:['all']},
+  {kind:'move',from:'立山站',to:'室堂',mode:'bus',duration:'約 1h',note:'纜車 7 分＋立山高原巴士 50 分・上行最終接續 15:40',who:['all']},
+  {kind:'stop',type:'spot',title:'室堂（立山黑部）',time:'約 10:00–14:00',detail:'海拔 2,450m・御庫裏池與室堂平散策｜10 月中旬可能已降雪，體感 0–8°C，需防風保暖＋防滑鞋',tag:'往返 ¥4,090',status:'pend',who:['all'],map:'室堂ターミナル 立山黒部アルペンルート'},
+  {kind:'move',from:'室堂',to:'金澤',mode:'train',duration:'約 2h40m',note:'原路折返・預計 17:40 前後回到金澤',who:['all']},
+  {kind:'stop',type:'meal',title:'風和利 ふわり（尾張町）',time:'19:00',detail:'古民家改建居酒屋・17:00–22:30（LO）・週一公休｜每人約 ¥3,000–6,000，建議先訂位',tag:'晚餐',status:'pend',who:['all'],map:'Fuwari 2-16-4 Owaricho, Kanazawa'},
   {kind:'stop',type:'hotel',title:'SOKI KANAZAWA（金澤）',time:'',detail:'住宿',tag:'',status:'ok',who:['all'],map:'SOKI KANAZAWA'},
 
   {kind:'day',date:'10/15',weekday:'四',dayNum:6},
@@ -285,11 +301,11 @@ function render(){
       h+=`<div class="day"><div class="dnum">${e.dayNum-base+1}</div><div class="dtag">${esc(e.date)}</div><div class="dsub">星期${esc(e.weekday)}</div></div>`;
     }else if(e.kind==='stop'){
       if(!isVis(e))return;
-      const st=e.status==='pend'?'<span class="status pend">待訂</span>':'<span class="status ok">已訂</span>';
+      const st=e.status==='pend'?'<span class="status pend">待訂</span>':e.status==='ok'?'<span class="status ok">已訂</span>':'';
       const tag=e.tag?`<span class="tag">${esc(e.tag)}</span>`:'';
       const q=e.map?encodeURIComponent(e.map):'';
-      const ttl=e.map?`<div class="ttl maplink" data-q="${q}">${esc(e.title)}</div>`:`<div class="ttl">${esc(e.title)}</div>`;
-      h+=`<div class="entry"><div class="node ${e.status==='pend'?'pending':''}"></div><div class="card"><div class="crow"><div class="ic">${STOP_ICONS[e.type]||'📍'}</div><div class="body">${ttl}${e.time?`<div class="time">${esc(e.time)}</div>`:''}${e.detail?`<div class="dtl">${esc(e.detail)}</div>`:''}${whoChips(e)}${e.map?'<div class="mapbox" hidden></div>':''}</div><div class="right">${st}${tag}</div></div></div></div>`;
+      const mp=e.map?`<button class="maptoggle" data-q="${q}">🗺 地圖<span class="chev">▼</span></button><div class="mapbox" hidden></div>`:'';
+      h+=`<div class="entry"><div class="node ${e.status==='pend'?'pending':''}"></div><div class="card"><div class="crow"><div class="ic">${STOP_ICONS[e.type]||'📍'}</div><div class="body"><div class="ttl">${esc(e.title)}</div>${e.time?`<div class="time">${esc(e.time)}</div>`:''}${e.detail?`<div class="dtl">${esc(e.detail)}</div>`:''}${whoChips(e)}${mp}</div><div class="right">${st}${tag}</div></div></div></div>`;
     }else if(e.kind==='move'){
       if(!isVis(e))return;
       const m=MODES[e.mode]||MODES.other;const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'移動';
@@ -298,10 +314,11 @@ function render(){
     }
   });
   tl.innerHTML=h;
-  tl.querySelectorAll('.maplink').forEach(t=>t.onclick=()=>{
+  tl.querySelectorAll('.maptoggle').forEach(t=>t.onclick=()=>{
     const box=t.parentNode.querySelector('.mapbox');
     if(!box.innerHTML)box.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${t.dataset.q}&output=embed"></iframe><a href="https://www.google.com/maps/search/?api=1&query=${t.dataset.q}" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>`;
     box.hidden=!box.hidden;
+    t.querySelector('.chev').textContent=box.hidden?'▼':'▲';
   });
 }
 const briefbtn=document.getElementById('briefbtn'),brief=document.getElementById('brief');
