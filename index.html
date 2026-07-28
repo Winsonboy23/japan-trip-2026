@@ -38,6 +38,26 @@
   .pchip.sel{background:var(--ink);color:#fff;border-color:var(--ink);}
   .fcap{font-size:12.5px;color:var(--ink3);margin:2px auto -6px;padding:0 18px;max-width:640px;}
 
+  .briefwrap{max-width:640px;margin:0 auto;padding:10px 18px 0;}
+  .briefbtn{width:100%;font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--accent);
+    background:var(--accent-soft);border:1px solid #D3E3DE;border-radius:12px;padding:11px 14px;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .briefbtn .chev{font-size:10px;}
+  .brief{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;
+    margin-top:8px;box-shadow:var(--shadow);}
+  .brief h3{font-family:var(--serif);font-size:14px;font-weight:700;margin:16px 0 6px;}
+  .brief h3:first-child{margin-top:0;}
+  .brief p,.brief li{font-size:12.5px;color:var(--ink2);margin:3px 0;line-height:1.7;}
+  .brief ul{margin:4px 0;padding-left:17px;}
+  .brief b{color:var(--ink);font-weight:500;}
+  .brief a{color:var(--accent);word-break:break-all;}
+  .brief table{width:100%;border-collapse:collapse;margin:7px 0;font-size:12px;}
+  .brief th,.brief td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--line);color:var(--ink2);}
+  .brief th{color:var(--ink3);font-weight:500;font-size:11px;}
+  .brief td:last-child,.brief th:last-child{text-align:right;white-space:nowrap;}
+  .brief .warn{color:var(--pending);background:var(--pending-soft);border-radius:8px;
+    padding:8px 10px;font-size:12px;margin:7px 0;line-height:1.6;}
+
   .wrap{max-width:640px;margin:0 auto;padding:0 18px;}
   .timeline{position:relative;padding:6px 0 20px;}
   .rail{position:absolute;left:26px;top:0;bottom:0;width:2px;background:var(--line);border-radius:2px;}
@@ -99,12 +119,72 @@
 <div class="filterwrap"><div class="filterbar" id="filterbar"></div></div>
 <div class="fcap" id="fcap"></div>
 
+<div class="briefwrap">
+  <button class="briefbtn" id="briefbtn">🎫 行前重點・周遊券與劃位<span class="chev">▼</span></button>
+  <div class="brief" id="brief" hidden>
+
+    <h3>周遊券（飛驒高山組・每人一張）</h3>
+    <ul>
+      <li><b>高山・北陸周遊券 ¥19,800</b>／連續 5 天，限外國護照短期滯留</li>
+      <li>啟用日 <b>10/13 – 10/17</b>（四人一致）</li>
+      <li>官方線上購買：<a href="https://touristpass.jp/en/takayama_hokuriku/" target="_blank" rel="noopener">touristpass.jp</a> →「予約する」</li>
+      <li><b>9/13 開賣</b>（乘車日 1 個月前，台灣時間上午 9:00）</li>
+      <li>四張放<b>同一個帳號</b>，劃位才會連號</li>
+    </ul>
+
+    <h3>領票</h3>
+    <ul>
+      <li><b>10/12 全員在新大阪站みどりの窓口</b>，飯店走過去即可</li>
+      <li><b>四人本人到場＋護照</b>，不能代領</li>
+      <li>領完之後補劃位，一個人拿四張券去窗口就行</li>
+    </ul>
+
+    <h3>劃位（免費 6 次，用 5 次）</h3>
+    <table>
+      <tr><th>日期</th><th>區間</th><th>車種</th></tr>
+      <tr><td>10/13</td><td>大阪 → 敦賀</td><td>雷鳥</td></tr>
+      <tr><td>10/13</td><td>敦賀 → 金澤</td><td>新幹線 つるぎ</td></tr>
+      <tr><td>10/16</td><td>高山 → 富山</td><td>特急 HIDA</td></tr>
+      <tr><td>10/16</td><td>富山 → 敦賀</td><td>新幹線</td></tr>
+      <tr><td>10/16</td><td>敦賀 → 京都</td><td>雷鳥</td></tr>
+    </table>
+    <ul>
+      <li>10/16 要<b>手動拆成「高山→富山」「富山→京都」兩段查</b>，直接查高山→京都會跳出經名古屋的路線（要自費約 ¥5,800）</li>
+      <li>敦賀轉乘：1F 特急 ⇄ 3F 新幹線，<b>選 9 分鐘以上的接續</b></li>
+      <li>自由席與普通車在範圍內無限次，不佔 6 次額度</li>
+    </ul>
+
+    <h3>白川鄉巴士（10/15）</h3>
+    <ul>
+      <li>金澤站西口 → 白川鄉 → 高山，約 2h15m，<b>車資已含在券內</b></li>
+      <li><b>全席預約制</b>，秋天會滿，1 個月前就訂</li>
+      <li>☎ 北陸鐵道 <b>076-234-0123</b>（8:00–18:00）</li>
+    </ul>
+    <div class="warn">⚠️ 用電話或櫃檯訂，並說明「持有高山・北陸エリア周遊きっぷ」。線上訂位系統會要求付款，等於重複付費。也可請 SOKI 金澤櫃檯代訂。</div>
+
+    <h3>券不含・要自費</h3>
+    <table>
+      <tr><td>10/12 Tai・芝芝 關西機場 → 大阪（関空快速）</td><td>¥1,210</td></tr>
+      <tr><td>10/19 Tai・芝芝 京都 → 關西機場</td><td>約 ¥3,640</td></tr>
+      <tr><td>10/17–18 京都市內公車地鐵</td><td>另計</td></tr>
+    </table>
+
+    <h3>10/17 空檔加碼</h3>
+    <p>券還有效但沒有大移動，從京都可免費往北跑：<b>敦賀</b>（海鮮市場・氣比神宮，約 50 分，省約 ¥7,400）或 <b>福井</b>（約 1h50，省約 ¥12,000）。劃位額度只剩 1 次，<b>走湖西線新快速自由席</b>就不佔額度。</p>
+
+    <h3>王家組（另計）</h3>
+    <p>關西・北陸周遊券 ¥19,000／7 天，10/13 啟用，只省約 ¥1,800 → <b>可買可不買</b>。</p>
+    <div class="warn">⚠️ 若買，10/15 金澤 → 京都<b>必須走敦賀轉乘</b>（新幹線＋雷鳥），走米原的東海道新幹線不在券內。</div>
+
+  </div>
+</div>
+
 <div class="wrap"><div class="timeline" id="tl"><div class="rail"></div></div></div>
 
 <script>
 const STOP_ICONS={flight:'✈️',hotel:'🛏️',checkout:'🧳',spot:'📍',meal:'🍽️',note:'📝'};
 const MODES={walk:['🚶','步行'],train:['🚆','電車'],bus:['🚌','巴士'],car:['🚗','開車'],taxi:['🚕','計程車'],flight:['✈️','飛機'],ferry:['⛴️','渡輪'],bike:['🚲','單車'],other:['·','其他']};
-const GROUPS={A:{name:'七撰',members:['W','M','T','Z']},B:{name:'王家',members:['K']}};
+const GROUPS={A:{name:'飛驒高山組',members:['W','M','T','Z']},B:{name:'王家組',members:['K']}};
 const G_ORDER=['A','B'];
 /* 只屬於這些人的項目預設隱藏，點標題「大阪」輸入密碼才顯示（純前端遮蔽，原始碼仍看得到） */
 const SECRET=['W','M'];
@@ -116,7 +196,7 @@ const PASSCODE='0420';
                  加 map:'地點關鍵字' → 標題可點，展開 Google 地圖
    kind:'move' → 兩點間移動（mode: 見 MODES；duration；from/to；note）
    who: ['all'] 或 ['W','M',...]（W=Winson M=Maggie T=Tai Z=芝芝 K=王家×3）
-        顯示時歸成兩組：七撰=W/M/T/Z、王家=K；只含 W/M 的項目要解鎖才看得到 */
+        顯示時歸成兩組：飛驒高山組=W/M/T/Z、王家組=K；只含 W/M 的項目要解鎖才看得到 */
 const SEED=[
   {kind:'day',date:'10/10',weekday:'六',dayNum:1},
   {kind:'stop',type:'flight',title:'Peach MM24　台北 TPE → 大阪 KIX',time:'09:30 → 13:20',detail:'2h50m｜Winson・Maggie 兩人',tag:'',status:'ok',who:['W','M']},
@@ -222,6 +302,12 @@ function render(){
     box.hidden=!box.hidden;
   });
 }
+const briefbtn=document.getElementById('briefbtn'),brief=document.getElementById('brief');
+briefbtn.onclick=()=>{
+  brief.hidden=!brief.hidden;
+  briefbtn.querySelector('.chev').textContent=brief.hidden?'▼':'▲';
+};
+
 /* 解鎖：除了行程卡，表頭的日期區間、動線數、進出點也一併還原成完整版 */
 document.getElementById('lockword').onclick=()=>{
   if(unlocked)return;
