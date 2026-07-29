@@ -75,11 +75,16 @@
   .ittl{flex:1;min-width:0;font-family:var(--serif);font-weight:700;font-size:16px;line-height:1.45;}
   .iplus{flex:none;color:var(--ink3);font-size:10px;padding:7px 0 0 6px;}
 
-  .mrow{display:flex;align-items:baseline;gap:10px;margin:0 16px 0 86px;padding:7px 0 7px 12px;
-    border-left:2px solid #EDEAE2;font-size:12px;flex-wrap:wrap;}
+  .mrow{margin:2px 16px 2px 86px;padding:8px 0 8px 13px;border-left:2px solid #EDEAE2;}
+  .mtop{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
   .mmode{font-size:10px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase;flex:none;}
-  .mdur{font-weight:500;color:var(--ink);flex:none;}
-  .mroute{color:var(--ink3);min-width:0;}
+  .mdur{font-size:12.5px;font-weight:500;color:var(--ink);flex:none;}
+  .mgrp{font-size:10.5px;color:var(--ink3);background:#F2F0E9;border-radius:5px;padding:1px 7px;}
+  .mroute{font-size:12.5px;color:var(--ink2);margin-top:3px;}
+  .mnote{font-size:12px;color:var(--ink3);line-height:1.7;margin-top:4px;}
+  .mnote div+div{margin-top:3px;}
+  .mnote .sub{padding-left:13px;position:relative;}
+  .mnote .sub::before{content:"·";position:absolute;left:4px;}
 
   .stay{display:flex;align-items:center;gap:10px;margin:10px 12px 12px;background:#F5F3ED;
     border-radius:11px;padding:10px 13px;cursor:pointer;flex-wrap:wrap;}
@@ -88,7 +93,7 @@
   .stay .mt{color:var(--ink3);font-size:12px;}
 
   .idet{padding:0 16px 15px 86px;}
-  .stay+.idet{padding:0 16px 14px 25px;margin-top:-4px;}
+  .stay+.idet{padding:2px 25px 14px;margin-top:-6px;}
   .idet .dtl{font-size:12.5px;color:var(--ink2);line-height:1.75;word-break:break-word;}
   .idet .chips{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;}
   .tag{font-size:11px;color:var(--ink2);background:#F2F0E9;border-radius:6px;padding:2px 8px;white-space:nowrap;}
@@ -198,7 +203,7 @@ const PASSCODE='0420';
 const SEED=[
   {kind:'day',date:'10/10',weekday:'六',place:'神戶'},
   {kind:'stop',type:'flight',title:'Peach MM24　台北 TPE → 大阪 KIX',time:'09:30 → 13:20',detail:'2h50m｜Winson・Maggie 兩人｜13:20 抵達 KIX 第 2 航廈',tag:'',status:'ok',who:['W','M']},
-  {kind:'move',from:'關西機場 T2',to:'神戶波多比亞',mode:'bus',duration:'1h40m / 1h15m',note:'兩案都現場買票。A 利木津：T2 14:22 → 三宮 15:40（ミント神戸 1F）→ Port Liner 市民広場，¥2,200＋¥280，約 16:00 到。B 高速船：出關走 E 門外找工作人員，接駁車 14:35 → 15:16 神戶機場 → Port Liner，套票 ¥1,880，約 15:35 到（滿席時預約者優先，滿了就改搭 A）',who:['W','M']},
+  {kind:'move',from:'關西機場 T2',to:'神戶波多比亞',mode:'bus',duration:'1h40m / 1h15m',note:'兩案都現場買票，不預訂\nA 利木津｜¥2,480｜約 16:00 到\n- T2 14:22 → 三宮 15:40（ミント神戸 1F）→ Port Liner 市民広場\nB 高速船｜套票 ¥1,880｜約 15:35 到\n- 出關走 E 門外找工作人員，接駁車 14:35 → 15:16 神戶機場\n- 滿席時預約者優先，滿了就改搭 A',who:['W','M']},
   {kind:'stop',type:'hotel',title:'神戶波多比亞飯店 Kobe Portopia Hotel',time:'',detail:'10/10 → 10/12・神戶遊玩｜Port Liner「市民廣場站」旁',tag:'',status:'ok',who:['W','M'],map:'神戸ポートピアホテル'},
 
   {kind:'day',date:'10/12',weekday:'一',place:'大阪'},
@@ -330,11 +335,14 @@ function render(){
         first=false;
       }else{
         const m=MODES[e.mode]||MODES.other;
-        const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'移動';
-        const wc=(filter==='all'&&e.who&&!e.who.includes('all'))?` ・${groupsOf(e).map(g=>GROUPS[g].name).join('/')}`:'';
-        h+=`<div class="mrow"><span class="mmode">${esc(m[1])}</span>`
-          +`<span class="mdur">${esc(e.duration||'')}</span>`
-          +`<span class="mroute">${route}${e.note?'・'+esc(e.note):''}${wc}</span></div>`;
+        const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'';
+        const grp=(filter==='all'&&e.who&&!e.who.includes('all'))
+          ?`<span class="mgrp">${groupsOf(e).map(g=>esc(GROUPS[g].name)).join('/')}</span>`:'';
+        const note=e.note?`<div class="mnote">${e.note.split('\n').map(l=>l.startsWith('- ')
+          ?`<div class="sub">${esc(l.slice(2))}</div>`:`<div>${esc(l)}</div>`).join('')}</div>`:'';
+        h+=`<div class="mrow"><div class="mtop"><span class="mmode">${esc(m[1])}</span>`
+          +`<span class="mdur">${esc(e.duration||'')}</span>${grp}</div>`
+          +(route?`<div class="mroute">${route}</div>`:'')+note+`</div>`;
       }
     });
     stays.forEach(e=>{
