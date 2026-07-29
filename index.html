@@ -21,24 +21,21 @@
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
     padding:0 0 40px;-webkit-font-smoothing:antialiased;}
 
-  header.top{padding:26px 18px 6px;max-width:640px;margin:0 auto;}
-  .eyebrow{font-size:12px;letter-spacing:.18em;color:var(--accent);font-weight:500;text-transform:uppercase;}
-  h1{font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.25;margin:6px 0 8px;letter-spacing:.01em;}
+  .shell{max-width:640px;margin:0 auto;padding:0 14px;}
+
+  header.top{background:#F3F1EC;border-radius:22px;padding:22px 20px 18px;margin:14px 0;}
+  .eyebrow{font-size:11px;letter-spacing:.22em;color:var(--ink3);font-weight:500;text-transform:uppercase;}
+  h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.2;margin:10px 0 16px;letter-spacing:.01em;}
   h1 .lockword{cursor:pointer;}
-  .meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--ink2);}
-  .meta b{font-weight:500;color:var(--ink);}
 
-  .filterwrap{position:sticky;top:0;z-index:30;background:linear-gradient(var(--paper) 78%,rgba(250,249,245,0));
-    padding:12px 18px 12px;margin:0 auto;max-width:640px;}
-  .filterbar{display:flex;gap:7px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;scrollbar-width:none;}
+  .filterbar{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   .filterbar::-webkit-scrollbar{display:none;}
-  .pchip{flex:none;font-family:var(--sans);font-size:13px;border:1px solid var(--line);background:var(--card);
-    color:var(--ink2);border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:500;white-space:nowrap;transition:.15s;}
-  .pchip:hover{border-color:var(--ink3);}
+  .pchip{flex:none;font-family:var(--sans);font-size:13px;border:1px solid #E2DFD7;background:#EDEBE5;
+    color:var(--ink2);border-radius:999px;padding:8px 16px;cursor:pointer;font-weight:500;white-space:nowrap;transition:.15s;}
   .pchip.sel{background:var(--ink);color:#fff;border-color:var(--ink);}
-  .fcap{font-size:12.5px;color:var(--ink3);margin:2px auto -6px;padding:0 18px;max-width:640px;}
+  .fcap{font-size:12px;color:var(--ink3);margin:-4px 0 12px;padding:0 6px;}
 
-  .briefwrap{max-width:640px;margin:0 auto;padding:10px 18px 0;}
+  .briefwrap{margin:0 0 16px;}
   .briefbtn{width:100%;font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--accent);
     background:var(--accent-soft);border:1px solid #D3E3DE;border-radius:12px;padding:11px 14px;cursor:pointer;
     display:flex;align-items:center;justify-content:space-between;gap:8px;}
@@ -58,67 +55,62 @@
   .brief .warn{color:var(--pending);background:var(--pending-soft);border-radius:8px;
     padding:8px 10px;font-size:12px;margin:7px 0;line-height:1.6;}
 
-  .wrap{max-width:640px;margin:0 auto;padding:0 18px;}
-  .timeline{position:relative;padding:6px 0 20px;}
-  .rail{position:absolute;left:26px;top:0;bottom:0;width:2px;background:var(--line);border-radius:2px;}
+  .daycard{background:var(--card);border:1px solid #EDEAE2;border-radius:18px;margin:0 0 14px;
+    overflow:hidden;box-shadow:0 1px 2px rgba(27,27,24,.03);}
+  .dhead{display:flex;align-items:center;gap:13px;padding:15px 16px 13px;border-bottom:1px solid #F0EEE7;}
+  .dnum{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1;flex:none;letter-spacing:-.01em;}
+  .dmid{flex:1;min-width:0;}
+  .dplace{font-family:var(--serif);font-weight:700;font-size:15px;line-height:1.3;}
+  .dsub{font-size:11.5px;color:var(--ink3);margin-top:2px;}
+  .dright{display:flex;align-items:center;gap:6px;flex:none;}
+  .chip-time{font-size:12px;color:var(--accent);background:var(--accent-soft);border-radius:8px;
+    padding:4px 9px;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:.02em;}
+  .chip-pend{font-size:11.5px;color:var(--pending);background:var(--pending-soft);border-radius:8px;padding:4px 8px;}
 
-  .day{position:relative;padding:22px 0 4px 52px;}
-  .day .dtag{font-family:var(--serif);font-weight:700;font-size:15px;}
-  .day .dsub{font-size:12px;color:var(--ink3);margin-top:1px;}
-  .day .dnum{position:absolute;left:14px;top:22px;width:26px;height:26px;border-radius:50%;
-    background:var(--ink);color:#fff;font-size:11px;font-weight:500;display:flex;align-items:center;
-    justify-content:center;font-family:var(--sans);}
+  .irow{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;cursor:pointer;border-top:1px solid #F4F2EC;}
+  .irow.first{border-top:0;}
+  .itime{font-size:12px;color:var(--ink2);flex:none;width:50px;padding-top:5px;
+    font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+  .ittl{flex:1;min-width:0;font-family:var(--serif);font-weight:700;font-size:16px;line-height:1.45;}
+  .iplus{flex:none;color:var(--ink3);font-size:15px;line-height:1.5;padding-left:4px;}
 
-  .entry{position:relative;padding:0 0 0 52px;}
-  .node{position:absolute;left:20px;top:16px;width:14px;height:14px;border-radius:50%;
-    background:var(--card);border:2px solid var(--accent);z-index:2;}
-  .node.pending{border-color:var(--pending);border-style:dashed;}
+  .mrow{display:flex;align-items:baseline;gap:10px;margin:0 16px 0 80px;padding:7px 0 7px 12px;
+    border-left:2px solid #EDEAE2;font-size:12px;flex-wrap:wrap;}
+  .mmode{font-size:10px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase;flex:none;}
+  .mdur{font-weight:500;color:var(--ink);flex:none;}
+  .mroute{color:var(--ink3);min-width:0;}
 
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;
-    margin:8px 0;box-shadow:var(--shadow);}
-  .card .crow{display:flex;align-items:flex-start;gap:10px;}
-  .card .ic{font-size:17px;line-height:1.3;flex:none;filter:grayscale(.15);}
-  .card .body{flex:1;min-width:0;}
-  .card .ttl{font-weight:500;font-size:15px;letter-spacing:.01em;}
-  .maptoggle{margin-top:9px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);
-    background:var(--accent-soft);border:1px solid #D3E3DE;border-radius:9px;padding:6px 11px;cursor:pointer;
-    display:inline-flex;align-items:center;gap:6px;}
-  .maptoggle .chev{font-size:9px;}
-  .mapbox{margin-top:9px;}
-  .mapbox iframe{display:block;width:100%;height:190px;border:0;border-radius:10px;background:#EFEDE6;}
-  .mapbox a{display:inline-block;margin-top:6px;font-size:12.5px;color:var(--accent);text-decoration:none;}
-  .card .time{font-size:13px;color:var(--accent);font-weight:500;margin-top:1px;}
-  .card .dtl{font-size:12.5px;color:var(--ink2);margin-top:3px;word-break:break-word;}
-  .card .right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:none;}
-  .tag{font-size:11px;color:var(--ink2);background:#F2F0E9;border-radius:6px;padding:2px 7px;white-space:nowrap;}
-  .status{font-size:11px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;}
+  .stay{display:flex;align-items:center;gap:10px;margin:10px 12px 12px;background:#F5F3ED;
+    border-radius:11px;padding:10px 13px;cursor:pointer;flex-wrap:wrap;}
+  .stay .lbl{font-size:9.5px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase;flex:none;}
+  .stay .nm{font-family:var(--serif);font-weight:700;font-size:13.5px;}
+  .stay .mt{color:var(--ink3);font-size:12px;}
+
+  .idet{padding:0 16px 15px 80px;}
+  .stay+.idet{padding:0 16px 14px 25px;margin-top:-4px;}
+  .idet .dtl{font-size:12.5px;color:var(--ink2);line-height:1.75;word-break:break-word;}
+  .idet .chips{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;}
+  .tag{font-size:11px;color:var(--ink2);background:#F2F0E9;border-radius:6px;padding:2px 8px;white-space:nowrap;}
+  .status{font-size:11px;font-weight:500;padding:2px 8px;border-radius:6px;white-space:nowrap;}
   .status.ok{color:var(--accent);background:var(--accent-soft);}
   .status.pend{color:var(--pending);background:var(--pending-soft);}
-  .whorow{margin-top:7px;display:flex;flex-wrap:wrap;gap:4px;}
-  .who{font-size:10.5px;color:#5f5d55;background:#EFEDE6;border-radius:5px;padding:1px 6px;}
+  .who{font-size:11px;color:#5f5d55;background:#EFEDE6;border-radius:6px;padding:2px 8px;}
   .who.all{background:var(--accent-soft);color:var(--accent);}
 
-  .move{position:relative;padding:0 0 0 52px;margin:2px 0;}
-  .move .mnode{position:absolute;left:23px;top:11px;width:8px;height:8px;border-radius:50%;background:var(--line);z-index:2;}
-  .move .mpill{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px dashed var(--line);
-    border-radius:999px;padding:6px 13px 6px 11px;font-size:13px;color:var(--ink2);flex-wrap:wrap;}
-  .move .mmode{font-size:15px;filter:grayscale(.1);}
-  .move .mdur{font-weight:500;color:var(--ink);}
-  .move .mnote{color:var(--ink3);font-size:12px;}
+  .mapbox{margin-top:10px;}
+  .mapbox iframe{display:block;width:100%;height:190px;border:0;border-radius:10px;background:#EFEDE6;}
+  .mapbox a{display:inline-block;margin-top:6px;font-size:12.5px;color:var(--accent);text-decoration:none;}
 </style>
 </head>
 <body>
+<div class="shell">
+
 <header class="top">
   <div class="eyebrow">Autumn Japan · 2026</div>
   <h1><span class="lockword" id="lockword">大阪</span>・金澤・高山・京都</h1>
-  <div class="meta">
-    <span>📅 <b id="mrange">10/12 – 10/19</b></span>
-    <span>👥 <b>7 人</b>（<span id="mlines">2</span> 組動線）</span>
-    <span id="mgate">✈️ 高雄進・高雄出</span>
-  </div>
+  <div class="filterbar" id="filterbar"></div>
 </header>
 
-<div class="filterwrap"><div class="filterbar" id="filterbar"></div></div>
 <div class="fcap" id="fcap"></div>
 
 <div class="briefwrap">
@@ -183,11 +175,12 @@
   </div>
 </div>
 
-<div class="wrap"><div class="timeline" id="tl"><div class="rail"></div></div></div>
+<div id="tl"></div>
+
+</div>
 
 <script>
-const STOP_ICONS={flight:'✈️',hotel:'🛏️',checkout:'🧳',spot:'📍',meal:'🍽️',note:'📝'};
-const MODES={walk:['🚶','步行'],train:['🚆','電車'],bus:['🚌','巴士'],car:['🚗','開車'],taxi:['🚕','計程車'],flight:['✈️','飛機'],ferry:['⛴️','渡輪'],bike:['🚲','單車'],other:['·','其他']};
+const MODES={walk:['🚶','Walk'],train:['🚆','Train'],bus:['🚌','Bus'],car:['🚗','Car'],taxi:['🚕','Car'],flight:['✈️','Flight'],ferry:['⛴️','Ferry'],bike:['🚲','Bike'],other:['·','Move']};
 const GROUPS={A:{name:'飛驒高山組',members:['W','M','T','Z']},B:{name:'王家組',members:['K']}};
 const G_ORDER=['A','B'];
 /* 只屬於這些人的項目預設隱藏，點標題「大阪」輸入密碼才顯示（純前端遮蔽，原始碼仍看得到） */
@@ -195,24 +188,24 @@ const SECRET=['W','M'];
 const PASSCODE='0420';
 
 /* ===== 行程內容寫死在這裡：要改就改這個陣列後重新 push =====
-   kind:'day'  → 日期分隔（date/weekday/dayNum）
+   kind:'day'  → 日期分隔（date/weekday/place；place 是當天卡片標題）
    kind:'stop' → 行程卡（type: flight|hotel|checkout|spot|meal|note；status: ok|pend）
                  加 map:'地點關鍵字' → 標題可點，展開 Google 地圖
    kind:'move' → 兩點間移動（mode: 見 MODES；duration；from/to；note）
    who: ['all'] 或 ['W','M',...]（W=Winson M=Maggie T=Tai Z=芝芝 K=王家×3）
         顯示時歸成兩組：飛驒高山組=W/M/T/Z、王家組=K；只含 W/M 的項目要解鎖才看得到 */
 const SEED=[
-  {kind:'day',date:'10/10',weekday:'六',dayNum:1},
+  {kind:'day',date:'10/10',weekday:'六',place:'神戶'},
   {kind:'stop',type:'flight',title:'Peach MM24　台北 TPE → 大阪 KIX',time:'09:30 → 13:20',detail:'2h50m｜Winson・Maggie 兩人',tag:'',status:'ok',who:['W','M']},
   {kind:'move',from:'關西機場 KIX T2',to:'神戶波多比亞',mode:'bus',duration:'約 1h',note:'阪急利木津巴士 → 三宮，轉 Port Liner 到飯店',who:['W','M']},
   {kind:'stop',type:'hotel',title:'神戶波多比亞飯店 Kobe Portopia Hotel',time:'',detail:'10/10 → 10/12・神戶遊玩｜Port Liner「市民廣場站」旁',tag:'',status:'ok',who:['W','M'],map:'神戸ポートピアホテル'},
 
-  {kind:'day',date:'10/12',weekday:'一',dayNum:3},
+  {kind:'day',date:'10/12',weekday:'一',place:'大阪'},
   {kind:'stop',type:'flight',title:'Tigerair IT284　高雄 KHH → 大阪 KIX',time:'06:55 → 10:55',detail:'3h00m｜5 位（Tai・芝芝・王家×3）',tag:'',status:'ok',who:['T','Z','K']},
   {kind:'move',from:'神戶',to:'大阪',mode:'train',duration:'約 1h',note:'回大阪與大家會合',who:['W','M']},
   {kind:'stop',type:'hotel',title:'Minn Shin-Osaka（大阪）',time:'入住 15:00',detail:'10/12 → 10/13・全員會合｜2 間房',tag:'',status:'ok',who:['all'],map:'Minn Shin-Osaka'},
 
-  {kind:'day',date:'10/13',weekday:'二',dayNum:4},
+  {kind:'day',date:'10/13',weekday:'二',place:'金澤'},
   {kind:'stop',type:'checkout',title:'Minn Shin-Osaka 退房',time:'07:00',detail:'趕 07:40 新大阪出發的車，前一晚先整理好行李',tag:'',status:'ok',who:['all']},
   {kind:'move',from:'新大阪 07:40',to:'金澤 10:00',mode:'train',duration:'約 2h20m',note:'雷鳥→敦賀轉北陸新幹線・轉乘抓 9 分鐘以上',who:['all']},
   {kind:'move',from:'金澤站',to:'SOKI KANAZAWA',mode:'taxi',duration:'約 10 分',note:'Uber・先寄放行李（步行約 15 分）',who:['all']},
@@ -226,7 +219,7 @@ const SEED=[
   {kind:'stop',type:'spot',title:'金澤城公園（五十間長屋）',time:'15:30',detail:'菱櫓・五十間長屋・橋爪門續櫓 9:00–16:30，最終入館 16:00 → 要先來這裡',tag:'',status:'',who:['all'],map:'金沢城公園'},
   {kind:'stop',type:'spot',title:'兼六園',time:'16:45',detail:'10/15 前開園 7:00–18:00，關得比金澤城晚，排最後',tag:'',status:'',who:['all'],map:'兼六園'},
 
-  {kind:'day',date:'10/14',weekday:'三',dayNum:5},
+  {kind:'day',date:'10/14',weekday:'三',place:'立山・金澤'},
   {kind:'move',from:'金澤 07:00',to:'立山站',mode:'train',duration:'約 1h40m',note:'北陸新幹線つるぎ自由席→富山（周遊券含）→富山地鐵立山線（券外）',who:['all']},
   {kind:'move',from:'立山站',to:'室堂',mode:'bus',duration:'約 1h',note:'纜車 7 分＋立山高原巴士 50 分・上行最終接續 15:40',who:['all']},
   {kind:'stop',type:'spot',title:'室堂（立山黑部）',time:'約 10:00–14:00',detail:'海拔 2,450m・御庫裏池與室堂平散策｜10 月中旬可能已降雪，體感 0–8°C，需防風保暖＋防滑鞋',tag:'往返 ¥4,090',status:'pend',who:['all'],map:'室堂ターミナル 立山黒部アルペンルート'},
@@ -234,35 +227,35 @@ const SEED=[
   {kind:'stop',type:'meal',title:'風和利 ふわり（尾張町）',time:'19:00',detail:'古民家改建居酒屋・17:00–22:30（LO）・週一公休｜每人約 ¥3,000–6,000，建議先訂位',tag:'晚餐',status:'pend',who:['all'],map:'Fuwari 2-16-4 Owaricho, Kanazawa'},
   {kind:'stop',type:'hotel',title:'SOKI KANAZAWA（金澤）',time:'',detail:'住宿',tag:'',status:'ok',who:['all'],map:'SOKI KANAZAWA'},
 
-  {kind:'day',date:'10/15',weekday:'四',dayNum:6},
+  {kind:'day',date:'10/15',weekday:'四',place:'高山・京都'},
   {kind:'stop',type:'checkout',title:'SOKI KANAZAWA 退房',time:'11:00',detail:'兩組人在此分開',tag:'',status:'ok',who:['all']},
   {kind:'move',from:'金澤',to:'高山',mode:'bus',duration:'約 2.5h',note:'濃飛巴士',who:['W','M','T','Z']},
   {kind:'stop',type:'hotel',title:'綠風苑 きよはる Ryokufuen Kiyoharu（高山）',time:'',detail:'10/15 → 10/16｜岡本町，距高山站車程 5 分・非步行距離。接送需事先預約 ☎ 0577-34-3311',tag:'TWD 13,437',status:'ok',who:['W','M','T','Z'],map:'岐阜県高山市岡本町4-215-1 緑風苑きよはる'},
   {kind:'move',from:'金澤',to:'京都',mode:'train',duration:'約 2.25h',note:'北陸新幹線＋東海道新幹線（米原轉乘）',who:['K']},
   {kind:'stop',type:'hotel',title:'Hotel The M’s Kyoto（京都）',time:'',detail:'10/15 → 10/19・王家先回京都｜請確認訂房',tag:'',status:'ok',who:['K'],map:'京都市南区東九条東山王町6'},
 
-  {kind:'day',date:'10/16',weekday:'五',dayNum:7},
+  {kind:'day',date:'10/16',weekday:'五',place:'京都'},
   {kind:'stop',type:'checkout',title:'綠風苑 退房',time:'',detail:'',tag:'',status:'ok',who:['W','M','T','Z']},
   {kind:'move',from:'高山',to:'京都',mode:'bus',duration:'約 3–4h',note:'濃飛巴士 ＋ JR',who:['W','M','T','Z']},
   {kind:'stop',type:'hotel',title:'京都 Airbnb 入住',time:'',detail:'23-1 Higashikujō Nakafudanotsujichō, Kyoto 601-8026｜10/16 → 10/19',tag:'Airbnb',status:'ok',who:['W','M','T','Z'],map:'23-1 Higashikujo Nakafudanotsujicho, Minami Ward, Kyoto 601-8026'},
   {kind:'stop',type:'hotel',title:'Hotel The M’s Kyoto（京都）',time:'',detail:'住宿',tag:'',status:'ok',who:['K'],map:'京都市南区東九条東山王町6'},
 
-  {kind:'day',date:'10/17',weekday:'六',dayNum:8},
+  {kind:'day',date:'10/17',weekday:'六',place:'京都'},
   {kind:'stop',type:'hotel',title:'京都 Airbnb',time:'',detail:'住宿',tag:'',status:'ok',who:['W','M','T','Z'],map:'23-1 Higashikujo Nakafudanotsujicho, Minami Ward, Kyoto 601-8026'},
   {kind:'stop',type:'hotel',title:'Hotel The M’s Kyoto',time:'',detail:'住宿',tag:'',status:'ok',who:['K'],map:'京都市南区東九条東山王町6'},
 
-  {kind:'day',date:'10/18',weekday:'日',dayNum:9},
+  {kind:'day',date:'10/18',weekday:'日',place:'京都'},
   {kind:'stop',type:'hotel',title:'京都 Airbnb',time:'',detail:'住宿',tag:'',status:'ok',who:['W','M','T','Z'],map:'23-1 Higashikujo Nakafudanotsujicho, Minami Ward, Kyoto 601-8026'},
   {kind:'stop',type:'hotel',title:'Hotel The M’s Kyoto',time:'',detail:'住宿',tag:'',status:'ok',who:['K'],map:'京都市南区東九条東山王町6'},
 
-  {kind:'day',date:'10/19',weekday:'一',dayNum:10},
+  {kind:'day',date:'10/19',weekday:'一',place:'京都 → 關西機場'},
   {kind:'stop',type:'checkout',title:'京都 Airbnb 退房',time:'',detail:'',tag:'',status:'ok',who:['W','M','T','Z']},
   {kind:'stop',type:'checkout',title:'Hotel The M’s Kyoto 退房',time:'',detail:'',tag:'',status:'ok',who:['K']},
   {kind:'move',from:'京都',to:'關西機場 KIX',mode:'train',duration:'約 75min',note:'HARUKA 特急 / 利木津巴士',who:['T','Z','K']},
   {kind:'stop',type:'flight',title:'AirAsia AK171　大阪 KIX → 高雄 KHH',time:'13:45 → 16:00',detail:'3h15m｜5 位返台（Tai・芝芝・王家×3）',tag:'',status:'ok',who:['T','Z','K']},
   {kind:'stop',type:'note',title:'Winson＋Maggie 續留日本',time:'',detail:'10/19 – 10/27 住宿與行程待安排（動線往神戶收）',tag:'',status:'pend',who:['W','M']},
 
-  {kind:'day',date:'10/27',weekday:'二',dayNum:18},
+  {kind:'day',date:'10/27',weekday:'二',place:'神戶 → 台北'},
   {kind:'stop',type:'flight',title:'Starlux JX835　神戶 UKB → 台北 TPE',time:'11:30 → 13:50',detail:'3h20m｜Winson・Maggie 兩人',tag:'',status:'ok',who:['W','M']},
 ];
 /* ===== 行程內容結束 ===== */
@@ -282,43 +275,79 @@ function buildFilter(){
   const chips=[{id:'all',label:'全部'}].concat(G_ORDER.map(id=>({id,label:GROUPS[id].name})));
   fb.innerHTML=chips.map(c=>`<button class="pchip ${filter===c.id?'sel':''}" data-f="${c.id}">${esc(c.label)}</button>`).join('');
   fb.querySelectorAll('.pchip').forEach(b=>b.onclick=()=>{filter=b.dataset.f;buildFilter();render();});
-  document.getElementById('fcap').textContent = filter==='all' ? '顯示所有行程，卡片右下標記同行組別' : `只顯示${GROUPS[filter].name}的行程`;
+  document.getElementById('fcap').textContent = filter==='all' ? '' : `只顯示${GROUPS[filter].name}的行程`;
 }
-function whoChips(e){
-  if(filter!=='all')return '';
-  const w=e.who||['all'];
-  if(w.includes('all'))return `<div class="whorow"><span class="who all">全員</span></div>`;
-  return `<div class="whorow">${groupsOf(e).map(g=>`<span class="who">${esc(GROUPS[g].name)}</span>`).join('')}</div>`;
+
+/* 卡片展開後才看得到的內容：說明、標籤、同行組別、地圖 */
+function detailPanel(e){
+  let s='';
+  if(e.detail)s+=`<div class="dtl">${esc(e.detail)}</div>`;
+  const chips=[];
+  if(e.status==='pend')chips.push('<span class="status pend">待訂</span>');
+  else if(e.status==='ok')chips.push('<span class="status ok">已訂</span>');
+  if(e.tag)chips.push(`<span class="tag">${esc(e.tag)}</span>`);
+  if(filter==='all'){
+    const w=e.who||['all'];
+    if(w.includes('all'))chips.push('<span class="who all">全員</span>');
+    else groupsOf(e).forEach(g=>chips.push(`<span class="who">${esc(GROUPS[g].name)}</span>`));
+  }
+  if(chips.length)s+=`<div class="chips">${chips.join('')}</div>`;
+  if(e.map)s+=`<div class="mapbox" data-q="${encodeURIComponent(e.map)}"></div>`;
+  return `<div class="idet" hidden>${s}</div>`;
 }
+function hhmm(t){const m=(t||'').match(/\d{1,2}:\d{2}/);return m?m[0]:'';}
+
 function render(){
   const tl=document.getElementById('tl');const E=SEED;
-  const dayVis={};let base=0;
-  for(let i=0;i<E.length;i++){if(E[i].kind==='day'){let vis=false;for(let j=i+1;j<E.length&&E[j].kind!=='day';j++){if(isVis(E[j])){vis=true;break;}}dayVis[i]=vis;if(vis&&!base)base=E[i].dayNum;}}
-  let h='<div class="rail"></div>';
-  E.forEach((e,i)=>{
-    if(e.kind==='day'){
-      if(!dayVis[i])return;
-      h+=`<div class="day"><div class="dnum">${e.dayNum-base+1}</div><div class="dtag">${esc(e.date)}</div><div class="dsub">星期${esc(e.weekday)}</div></div>`;
-    }else if(e.kind==='stop'){
-      if(!isVis(e))return;
-      const st=e.status==='pend'?'<span class="status pend">待訂</span>':e.status==='ok'?'<span class="status ok">已訂</span>':'';
-      const tag=e.tag?`<span class="tag">${esc(e.tag)}</span>`:'';
-      const q=e.map?encodeURIComponent(e.map):'';
-      const mp=e.map?`<button class="maptoggle" data-q="${q}">🗺 地圖<span class="chev">▼</span></button><div class="mapbox" hidden></div>`:'';
-      h+=`<div class="entry"><div class="node ${e.status==='pend'?'pending':''}"></div><div class="card"><div class="crow"><div class="ic">${STOP_ICONS[e.type]||'📍'}</div><div class="body"><div class="ttl">${esc(e.title)}</div>${e.time?`<div class="time">${esc(e.time)}</div>`:''}${e.detail?`<div class="dtl">${esc(e.detail)}</div>`:''}${whoChips(e)}${mp}</div><div class="right">${st}${tag}</div></div></div></div>`;
-    }else if(e.kind==='move'){
-      if(!isVis(e))return;
-      const m=MODES[e.mode]||MODES.other;const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'移動';
-      const wc=(filter==='all'&&e.who&&!e.who.includes('all'))?` ・${groupsOf(e).map(g=>GROUPS[g].name).join('/')}`:'';
-      h+=`<div class="move"><div class="mnode"></div><div class="mpill"><span class="mmode">${m[0]}</span><span class="mdur">${esc(e.duration||m[1])}</span><span class="mnote">${route}${e.note?'・'+esc(e.note):''}${wc}</span></div></div>`;
-    }
-  });
+  let h='';
+  for(let i=0;i<E.length;i++){
+    if(E[i].kind!=='day')continue;
+    const d=E[i],items=[];
+    for(let j=i+1;j<E.length&&E[j].kind!=='day';j++)if(isVis(E[j]))items.push(E[j]);
+    if(!items.length)continue;
+    const stops=items.filter(e=>e.kind==='stop');
+    const acts=stops.filter(e=>e.type!=='hotel');
+    const n=acts.length;
+    const ts=acts.map(e=>hhmm(e.time)).filter(Boolean).sort();
+    const range=ts.length?(ts[0]===ts[ts.length-1]?ts[0]:ts[0]+'–'+ts[ts.length-1]):'';
+    const pend=stops.some(e=>e.status==='pend');
+    h+=`<div class="daycard"><div class="dhead"><div class="dnum">${esc(d.date.split('/')[1])}</div>`
+      +`<div class="dmid"><div class="dplace">${esc(d.place||d.date)}</div>`
+      +`<div class="dsub">週${esc(d.weekday)}${n?' · '+n+' 項':''}</div></div>`
+      +`<div class="dright">${pend?'<span class="chip-pend">待訂</span>':''}`
+      +`${range?`<span class="chip-time">${range}</span>`:''}</div></div>`;
+    const stays=[];let first=true;
+    items.forEach(e=>{
+      if(e.kind==='stop'&&e.type==='hotel'){stays.push(e);return;}
+      if(e.kind==='stop'){
+        h+=`<div class="irow${first?' first':''}"><div class="itime">${esc(hhmm(e.time))}</div>`
+          +`<div class="ittl">${esc(e.title)}</div><div class="iplus">+</div></div>${detailPanel(e)}`;
+        first=false;
+      }else{
+        const m=MODES[e.mode]||MODES.other;
+        const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'移動';
+        const wc=(filter==='all'&&e.who&&!e.who.includes('all'))?` ・${groupsOf(e).map(g=>GROUPS[g].name).join('/')}`:'';
+        h+=`<div class="mrow"><span class="mmode">${esc(m[1])}</span>`
+          +`<span class="mdur">${esc(e.duration||'')}</span>`
+          +`<span class="mroute">${route}${e.note?'・'+esc(e.note):''}${wc}</span></div>`;
+      }
+    });
+    stays.forEach(e=>{
+      const brief=(e.detail||'').split(/[・｜]/)[0];
+      const st=e.status==='pend'?' · 待訂':e.status==='ok'?' · 已訂':'';
+      h+=`<div class="stay"><span class="lbl">Stay</span><span class="nm">${esc(e.title)}</span>`
+        +`<span class="mt">${esc(brief)}${st}</span></div>${detailPanel(e)}`;
+    });
+    h+='</div>';
+  }
   tl.innerHTML=h;
-  tl.querySelectorAll('.maptoggle').forEach(t=>t.onclick=()=>{
-    const box=t.parentNode.querySelector('.mapbox');
-    if(!box.innerHTML)box.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${t.dataset.q}&output=embed"></iframe><a href="https://www.google.com/maps/search/?api=1&query=${t.dataset.q}" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>`;
-    box.hidden=!box.hidden;
-    t.querySelector('.chev').textContent=box.hidden?'▼':'▲';
+  tl.querySelectorAll('.irow,.stay').forEach(r=>r.onclick=()=>{
+    const d=r.nextElementSibling;
+    if(!d||!d.classList.contains('idet'))return;
+    d.hidden=!d.hidden;
+    const p=r.querySelector('.iplus');if(p)p.textContent=d.hidden?'+':'−';
+    const mb=d.querySelector('.mapbox');
+    if(mb&&!mb.innerHTML)mb.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${mb.dataset.q}&output=embed"></iframe><a href="https://www.google.com/maps/search/?api=1&query=${mb.dataset.q}" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>`;
   });
 }
 const briefbtn=document.getElementById('briefbtn'),brief=document.getElementById('brief');
@@ -327,14 +356,11 @@ briefbtn.onclick=()=>{
   briefbtn.querySelector('.chev').textContent=brief.hidden?'▼':'▲';
 };
 
-/* 解鎖：除了行程卡，表頭的日期區間、動線數、進出點也一併還原成完整版 */
+/* 解鎖：藏起來的日子整張卡片才會出現 */
 document.getElementById('lockword').onclick=()=>{
   if(unlocked)return;
   if(prompt('請輸入密碼')!==PASSCODE)return;
   unlocked=true;
-  document.getElementById('mrange').textContent='10/10 – 10/27';
-  document.getElementById('mlines').textContent='3';
-  document.getElementById('mgate').textContent='✈️ 台北 / 高雄進・神戶 / 高雄出';
   render();
 };
 buildFilter();render();
