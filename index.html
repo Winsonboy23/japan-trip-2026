@@ -69,12 +69,13 @@
 
   .irow{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;cursor:pointer;border-top:1px solid #F4F2EC;}
   .irow.first{border-top:0;}
-  .itime{font-size:12px;color:var(--ink2);flex:none;width:50px;padding-top:5px;
-    font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+  .itime{font-size:12px;color:var(--ink2);flex:none;width:56px;padding-top:5px;
+    font-variant-numeric:tabular-nums;letter-spacing:.04em;line-height:1.5;}
+  .itime .tarr{color:var(--ink3);}
   .ittl{flex:1;min-width:0;font-family:var(--serif);font-weight:700;font-size:16px;line-height:1.45;}
   .iplus{flex:none;color:var(--ink3);font-size:10px;padding:7px 0 0 6px;}
 
-  .mrow{display:flex;align-items:baseline;gap:10px;margin:0 16px 0 80px;padding:7px 0 7px 12px;
+  .mrow{display:flex;align-items:baseline;gap:10px;margin:0 16px 0 86px;padding:7px 0 7px 12px;
     border-left:2px solid #EDEAE2;font-size:12px;flex-wrap:wrap;}
   .mmode{font-size:10px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase;flex:none;}
   .mdur{font-weight:500;color:var(--ink);flex:none;}
@@ -86,7 +87,7 @@
   .stay .nm{font-family:var(--serif);font-weight:700;font-size:13.5px;}
   .stay .mt{color:var(--ink3);font-size:12px;}
 
-  .idet{padding:0 16px 15px 80px;}
+  .idet{padding:0 16px 15px 86px;}
   .stay+.idet{padding:0 16px 14px 25px;margin-top:-4px;}
   .idet .dtl{font-size:12.5px;color:var(--ink2);line-height:1.75;word-break:break-word;}
   .idet .chips{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;}
@@ -196,8 +197,8 @@ const PASSCODE='0420';
         顯示時歸成兩組：飛驒高山組=W/M/T/Z、王家組=K；只含 W/M 的項目要解鎖才看得到 */
 const SEED=[
   {kind:'day',date:'10/10',weekday:'六',place:'神戶'},
-  {kind:'stop',type:'flight',title:'Peach MM24　台北 TPE → 大阪 KIX',time:'09:30 → 13:20',detail:'2h50m｜Winson・Maggie 兩人',tag:'',status:'ok',who:['W','M']},
-  {kind:'move',from:'關西機場 KIX T2',to:'神戶波多比亞',mode:'bus',duration:'約 1h',note:'阪急利木津巴士 → 三宮，轉 Port Liner 到飯店',who:['W','M']},
+  {kind:'stop',type:'flight',title:'Peach MM24　台北 TPE → 大阪 KIX',time:'09:30 → 13:20',detail:'2h50m｜Winson・Maggie 兩人｜13:20 抵達 KIX 第 2 航廈',tag:'',status:'ok',who:['W','M']},
+  {kind:'move',from:'關西機場 T2 15:12',to:'飯店 約 17:00',mode:'bus',duration:'約 1h50m',note:'阪急利木津 → 三宮 16:30（ミント神戸 1F）→ Port Liner 至市民広場｜¥2,200＋¥280。不想等可改搭 13:47 班（關空交通，三宮 15:05）',who:['W','M']},
   {kind:'stop',type:'hotel',title:'神戶波多比亞飯店 Kobe Portopia Hotel',time:'',detail:'10/10 → 10/12・神戶遊玩｜Port Liner「市民廣場站」旁',tag:'',status:'ok',who:['W','M'],map:'神戸ポートピアホテル'},
 
   {kind:'day',date:'10/12',weekday:'一',place:'大阪'},
@@ -320,7 +321,11 @@ function render(){
     items.forEach(e=>{
       if(e.kind==='stop'&&e.type==='hotel'){stays.push(e);return;}
       if(e.kind==='stop'){
-        h+=`<div class="irow${first?' first':''}"><div class="itime">${esc(hhmm(e.time))}</div>`
+        const seg=(e.time||'').split('→');
+        const tcell=seg.length>1
+          ?`<div>${esc(hhmm(seg[0]))}</div><div class="tarr">↓ ${esc(hhmm(seg[1]))}</div>`
+          :esc(hhmm(e.time));
+        h+=`<div class="irow${first?' first':''}"><div class="itime">${tcell}</div>`
           +`<div class="ittl">${esc(e.title)}</div><div class="iplus">▼</div></div>${detailPanel(e)}`;
         first=false;
       }else{
