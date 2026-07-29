@@ -72,7 +72,7 @@
   .itime{font-size:12px;color:var(--ink2);flex:none;width:50px;padding-top:5px;
     font-variant-numeric:tabular-nums;letter-spacing:.04em;}
   .ittl{flex:1;min-width:0;font-family:var(--serif);font-weight:700;font-size:16px;line-height:1.45;}
-  .iplus{flex:none;color:var(--ink3);font-size:15px;line-height:1.5;padding-left:4px;}
+  .iplus{flex:none;color:var(--ink3);font-size:10px;padding:7px 0 0 6px;}
 
   .mrow{display:flex;align-items:baseline;gap:10px;margin:0 16px 0 80px;padding:7px 0 7px 12px;
     border-left:2px solid #EDEAE2;font-size:12px;flex-wrap:wrap;}
@@ -321,7 +321,7 @@ function render(){
       if(e.kind==='stop'&&e.type==='hotel'){stays.push(e);return;}
       if(e.kind==='stop'){
         h+=`<div class="irow${first?' first':''}"><div class="itime">${esc(hhmm(e.time))}</div>`
-          +`<div class="ittl">${esc(e.title)}</div><div class="iplus">+</div></div>${detailPanel(e)}`;
+          +`<div class="ittl">${esc(e.title)}</div><div class="iplus">▼</div></div>${detailPanel(e)}`;
         first=false;
       }else{
         const m=MODES[e.mode]||MODES.other;
@@ -345,7 +345,7 @@ function render(){
     const d=r.nextElementSibling;
     if(!d||!d.classList.contains('idet'))return;
     d.hidden=!d.hidden;
-    const p=r.querySelector('.iplus');if(p)p.textContent=d.hidden?'+':'−';
+    const p=r.querySelector('.iplus');if(p)p.textContent=d.hidden?'▼':'▲';
     const mb=d.querySelector('.mapbox');
     if(mb&&!mb.innerHTML)mb.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${mb.dataset.q}&output=embed"></iframe><a href="https://www.google.com/maps/search/?api=1&query=${mb.dataset.q}" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>`;
   });
