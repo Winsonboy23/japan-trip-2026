@@ -111,6 +111,7 @@
   .stay .nm{font-family:var(--serif);font-weight:700;font-size:13.5px;}
   .stay .mt{color:var(--ink3);font-size:12px;}
   .sdet{margin:0 12px 12px;background:#F5F3ED;border-radius:0 0 11px 11px;padding:0 13px 11px;}
+  .stay.solo{border-radius:11px;margin-bottom:12px;padding-bottom:10px;}
 
   .dtl{font-size:12.5px;color:var(--ink2);line-height:1.75;word-break:break-word;}
   .chips{margin-top:7px;display:flex;flex-wrap:wrap;gap:5px;}
@@ -316,8 +317,8 @@ function panelInner(e){
   let s='';
   if(e.detail)s+=`<div class="dtl">${esc(e.detail)}</div>`;
   const chips=[];
+  /* 只標「待訂」提醒；訂好的不用章 */
   if(e.status==='pend')chips.push('<span class="status pend">待訂</span>');
-  else if(e.status==='ok')chips.push('<span class="status ok">已訂</span>');
   if(e.tag)chips.push(`<span class="tag">${esc(e.tag)}</span>`);
   if(filter==='all'){
     const w=e.who||['all'];
@@ -382,10 +383,11 @@ function render(){
       }else h+=moveHtml(e);
     });
     stays.forEach(e=>{
-      const brief=(e.detail||'').split(/[・｜]/)[0];
-      const st=e.status==='pend'?' · 待訂':e.status==='ok'?' · 已訂':'';
-      h+=`<div class="stay"><span class="lbl">Stay</span><span class="nm">${esc(e.title)}${locLink(e)}</span>`
-        +`<span class="mt">${esc(brief)}${st}</span></div><div class="sdet">${panelInner(e)}</div>`;
+      /* 細節常駐顯示在下方，STAY 列不再放摘要以免重複；「住宿」填充字直接略過 */
+      const det=e.detail==='住宿'?'':e.detail;
+      const inner=panelInner({...e,detail:det});
+      h+=`<div class="stay${inner?'':' solo'}"><span class="lbl">Stay</span><span class="nm">${esc(e.title)}${locLink(e)}</span>`
+        +`</div>${inner?`<div class="sdet">${inner}</div>`:''}`;
     });
     h+='</div></div></div>';
   }
