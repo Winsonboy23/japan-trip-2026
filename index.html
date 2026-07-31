@@ -78,9 +78,7 @@
   .irow.noexp{cursor:default;}
   .irow .status{flex:none;margin:3px 0 0 6px;}
   .stay .iplus{margin-left:auto;padding:0;}
-  .mrow.exp{cursor:pointer;}
-  .mtop .iplus{margin-left:auto;padding:0;}
-  .mext{margin-top:3px;}
+  .idet .mrow{margin:8px 0 0;padding:5px 0 5px 13px;}
 
   .mrow{margin:2px 16px 2px 86px;padding:8px 0 8px 13px;border-left:2px solid #EDEAE2;}
   .mtop{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
@@ -301,7 +299,7 @@ function buildFilter(){
 }
 
 /* 卡片展開後才看得到的內容：說明、標籤、同行組別、地圖 */
-function detailPanel(e){
+function panelInner(e){
   let s='';
   if(e.detail)s+=`<div class="dtl">${esc(e.detail)}</div>`;
   const chips=[];
@@ -315,7 +313,18 @@ function detailPanel(e){
   }
   if(chips.length)s+=`<div class="chips">${chips.join('')}</div>`;
   if(e.map)s+=`<div class="mapbox" data-q="${encodeURIComponent(e.map)}"></div>`;
-  return `<div class="idet" hidden>${s}</div>`;
+  return s;
+}
+function moveHtml(e){
+  const m=MODES[e.mode]||MODES.other;
+  const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'';
+  const grp=(filter==='all'&&e.who&&!e.who.includes('all'))
+    ?`<span class="mgrp">${groupsOf(e).map(g=>esc(GROUPS[g].name)).join('/')}</span>`:'';
+  const li=l=>l.startsWith('- ')?`<div class="sub">${esc(l.slice(2))}</div>`:`<div>${esc(l)}</div>`;
+  const note=e.note?`<div class="mnote">${e.note.split('\n').map(li).join('')}</div>`:'';
+  return `<div class="mrow"><div class="mtop"><span class="mmode">${esc(m[1])}</span>`
+    +`<span class="mdur">${esc(e.duration||'')}</span>${grp}</div>`
+    +(route?`<div class="mroute">${route}</div>`:'')+note+`</div>`;
 }
 function hhmm(t){const m=(t||'').match(/\d{1,2}:\d{2}/);return m?m[0]:'';}
 
@@ -338,59 +347,51 @@ function render(){
       +`<div class="dsub">週${esc(d.weekday)}${n?' · '+n+' 項':''}</div></div>`
       +`<div class="dright">${pend?'<span class="chip-pend">待訂</span>':''}`
       +`${range?`<span class="chip-time">${range}</span>`:''}</div></div>`;
-    const stays=[];let first=true;
+    /* 交通歸屬到上方的行程點：展開＝細節＋接下來的移動，收合＝乾淨的行程點清單。
+       一天以移動開頭時（如 10/14 清晨出發），這些移動歸給第一個行程點 */
+    const stays=[],blocks=[];let lead=[];
     items.forEach(e=>{
       if(e.kind==='stop'&&e.type==='hotel'){stays.push(e);return;}
-      if(e.kind==='stop'){
-        const seg=(e.time||'').split('→');
-        const tcell=seg.length>1
-          ?`<div>${esc(hhmm(seg[0]))}</div><div class="tarrow">↓</div><div class="tarr">${esc(hhmm(seg[1]))}</div>`
-          :esc(hhmm(e.time));
-        /* 沒有說明/標籤/地圖的卡（如退房）：狀態章直接顯示，不做展開 */
-        const hasPanel=!!(e.detail||e.tag||e.map);
-        if(hasPanel){
-          h+=`<div class="irow${first?' first':''}" data-key="${esc(d.date+'|'+e.title)}"><div class="itime">${tcell}</div>`
-            +`<div class="ittl">${esc(e.title)}</div><div class="iplus">▼</div></div>${detailPanel(e)}`;
-        }else{
-          const st=e.status==='pend'?'<span class="status pend">待訂</span>':e.status==='ok'?'<span class="status ok">已訂</span>':'';
-          h+=`<div class="irow noexp${first?' first':''}"><div class="itime">${tcell}</div>`
-            +`<div class="ittl">${esc(e.title)}</div>${st}</div>`;
-        }
-        first=false;
-      }else{
-        const m=MODES[e.mode]||MODES.other;
-        const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'';
-        const grp=(filter==='all'&&e.who&&!e.who.includes('all'))
-          ?`<span class="mgrp">${groupsOf(e).map(g=>esc(GROUPS[g].name)).join('/')}</span>`:'';
-        const lines=e.note?e.note.split('\n'):[];
-        const li=l=>l.startsWith('- ')?`<div class="sub">${esc(l.slice(2))}</div>`:`<div>${esc(l)}</div>`;
-        /* 長說明（>2 行）只先露第一行，其餘收合，與行程列同一套展開邏輯 */
-        const long=lines.length>2;
-        const note=lines.length?`<div class="mnote">${(long?lines.slice(0,1):lines).map(li).join('')}</div>`
-          +(long?`<div class="mext" hidden><div class="mnote">${lines.slice(1).map(li).join('')}</div></div>`:''):'';
-        h+=`<div class="mrow${long?' exp':''}"${long?` data-key="${esc(d.date+'|mv|'+(e.from||'')+'|'+(e.to||''))}"`:''}>`
-          +`<div class="mtop"><span class="mmode">${esc(m[1])}</span>`
-          +`<span class="mdur">${esc(e.duration||'')}</span>${grp}${long?'<span class="iplus">▼</span>':''}</div>`
-          +(route?`<div class="mroute">${route}</div>`:'')+note+`</div>`;
-      }
+      if(e.kind==='stop')blocks.push({stop:e,moves:[]});
+      else (blocks.length?blocks[blocks.length-1].moves:lead).push(e);
     });
+    if(blocks.length&&lead.length){blocks[0].moves=lead.concat(blocks[0].moves);lead=[];}
+    let first=true;
+    blocks.forEach(b=>{
+      const e=b.stop;
+      const seg=(e.time||'').split('→');
+      const tcell=seg.length>1
+        ?`<div>${esc(hhmm(seg[0]))}</div><div class="tarrow">↓</div><div class="tarr">${esc(hhmm(seg[1]))}</div>`
+        :esc(hhmm(e.time));
+      const inner=panelInner(e)+b.moves.map(moveHtml).join('');
+      /* 只有狀態章、沒說明沒交通的卡（如部分退房）維持不可展開 */
+      if(e.detail||e.tag||e.map||b.moves.length){
+        h+=`<div class="irow${first?' first':''}" data-key="${esc(d.date+'|'+e.title)}"><div class="itime">${tcell}</div>`
+          +`<div class="ittl">${esc(e.title)}</div><div class="iplus">▼</div></div><div class="idet" hidden>${inner}</div>`;
+      }else{
+        const st=e.status==='pend'?'<span class="status pend">待訂</span>':e.status==='ok'?'<span class="status ok">已訂</span>':'';
+        h+=`<div class="irow noexp${first?' first':''}"><div class="itime">${tcell}</div>`
+          +`<div class="ittl">${esc(e.title)}</div>${st}</div>`;
+      }
+      first=false;
+    });
+    lead.forEach(e=>{h+=moveHtml(e);}); /* 只有移動、沒有行程點的日子 */
     stays.forEach(e=>{
       const brief=(e.detail||'').split(/[・｜]/)[0];
       const st=e.status==='pend'?' · 待訂':e.status==='ok'?' · 已訂':'';
       h+=`<div class="stay" data-key="${esc(d.date+'|stay|'+e.title)}"><span class="lbl">Stay</span><span class="nm">${esc(e.title)}</span>`
-        +`<span class="mt">${esc(brief)}${st}</span><span class="iplus">▼</span></div>${detailPanel(e)}`;
+        +`<span class="mt">${esc(brief)}${st}</span><span class="iplus">▼</span></div><div class="idet" hidden>${panelInner(e)}</div>`;
     });
     h+='</div>';
   }
   tl.innerHTML=h;
-  /* 展開目標：mrow 是內部的 .mext，其餘是緊鄰的 .idet */
   const setOpen=(r,open)=>{
-    const t=r.classList.contains('mrow')?r.querySelector('.mext'):r.nextElementSibling;
-    if(!t)return;
+    const t=r.nextElementSibling;
+    if(!t||!t.classList.contains('idet'))return;
     t.hidden=!open;
     const p=r.querySelector('.iplus');if(p)p.textContent=open?'▲':'▼';
     if(open){
-      const mb=(t.querySelector&&t.querySelector('.mapbox'))||null;
+      const mb=t.querySelector('.mapbox');
       if(mb&&!mb.innerHTML)mb.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${mb.dataset.q}&output=embed"></iframe><a href="https://www.google.com/maps/search/?api=1&query=${mb.dataset.q}" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>`;
     }
   };
