@@ -75,6 +75,12 @@
   .itime .tarr{color:var(--ink3);}
   .ittl{flex:1;min-width:0;font-family:var(--serif);font-weight:700;font-size:16px;line-height:1.45;}
   .iplus{flex:none;color:var(--ink3);font-size:10px;padding:7px 0 0 6px;}
+  .irow.noexp{cursor:default;}
+  .irow .status{flex:none;margin:3px 0 0 6px;}
+  .stay .iplus{margin-left:auto;padding:0;}
+  .mrow.exp{cursor:pointer;}
+  .mtop .iplus{margin-left:auto;padding:0;}
+  .mext{margin-top:3px;}
 
   .mrow{margin:2px 16px 2px 86px;padding:8px 0 8px 13px;border-left:2px solid #EDEAE2;}
   .mtop{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
@@ -87,7 +93,7 @@
   .mnote .sub{padding-left:13px;position:relative;}
   .mnote .sub::before{content:"·";position:absolute;left:4px;}
 
-  .stay{display:flex;align-items:center;gap:10px;margin:10px 12px 12px;background:#F5F3ED;
+  .stay{cursor:pointer;display:flex;align-items:center;gap:10px;margin:10px 12px 12px;background:#F5F3ED;
     border-radius:11px;padding:10px 13px;cursor:pointer;flex-wrap:wrap;}
   .stay .lbl{font-size:9.5px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase;flex:none;}
   .stay .nm{font-family:var(--serif);font-weight:700;font-size:13.5px;}
@@ -276,6 +282,7 @@ const SEED=[
 /* ===== 行程內容結束 ===== */
 
 let filter='all',unlocked=false;
+const openSet=new Set(); /* 記住哪些卡展開中，re-render（切篩選、解鎖）後還原 */
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function isSecret(e){const w=e.who||['all'];return !w.includes('all')&&w.every(id=>SECRET.includes(id));}
 function groupsOf(e){const w=e.who||['all'];if(w.includes('all'))return G_ORDER;return G_ORDER.filter(g=>GROUPS[g].members.some(id=>w.includes(id)));}
@@ -339,37 +346,61 @@ function render(){
         const tcell=seg.length>1
           ?`<div>${esc(hhmm(seg[0]))}</div><div class="tarrow">↓</div><div class="tarr">${esc(hhmm(seg[1]))}</div>`
           :esc(hhmm(e.time));
-        h+=`<div class="irow${first?' first':''}"><div class="itime">${tcell}</div>`
-          +`<div class="ittl">${esc(e.title)}</div><div class="iplus">▼</div></div>${detailPanel(e)}`;
+        /* 沒有說明/標籤/地圖的卡（如退房）：狀態章直接顯示，不做展開 */
+        const hasPanel=!!(e.detail||e.tag||e.map);
+        if(hasPanel){
+          h+=`<div class="irow${first?' first':''}" data-key="${esc(d.date+'|'+e.title)}"><div class="itime">${tcell}</div>`
+            +`<div class="ittl">${esc(e.title)}</div><div class="iplus">▼</div></div>${detailPanel(e)}`;
+        }else{
+          const st=e.status==='pend'?'<span class="status pend">待訂</span>':e.status==='ok'?'<span class="status ok">已訂</span>':'';
+          h+=`<div class="irow noexp${first?' first':''}"><div class="itime">${tcell}</div>`
+            +`<div class="ittl">${esc(e.title)}</div>${st}</div>`;
+        }
         first=false;
       }else{
         const m=MODES[e.mode]||MODES.other;
         const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'';
         const grp=(filter==='all'&&e.who&&!e.who.includes('all'))
           ?`<span class="mgrp">${groupsOf(e).map(g=>esc(GROUPS[g].name)).join('/')}</span>`:'';
-        const note=e.note?`<div class="mnote">${e.note.split('\n').map(l=>l.startsWith('- ')
-          ?`<div class="sub">${esc(l.slice(2))}</div>`:`<div>${esc(l)}</div>`).join('')}</div>`:'';
-        h+=`<div class="mrow"><div class="mtop"><span class="mmode">${esc(m[1])}</span>`
-          +`<span class="mdur">${esc(e.duration||'')}</span>${grp}</div>`
+        const lines=e.note?e.note.split('\n'):[];
+        const li=l=>l.startsWith('- ')?`<div class="sub">${esc(l.slice(2))}</div>`:`<div>${esc(l)}</div>`;
+        /* 長說明（>2 行）只先露第一行，其餘收合，與行程列同一套展開邏輯 */
+        const long=lines.length>2;
+        const note=lines.length?`<div class="mnote">${(long?lines.slice(0,1):lines).map(li).join('')}</div>`
+          +(long?`<div class="mext" hidden><div class="mnote">${lines.slice(1).map(li).join('')}</div></div>`:''):'';
+        h+=`<div class="mrow${long?' exp':''}"${long?` data-key="${esc(d.date+'|mv|'+(e.from||'')+'|'+(e.to||''))}"`:''}>`
+          +`<div class="mtop"><span class="mmode">${esc(m[1])}</span>`
+          +`<span class="mdur">${esc(e.duration||'')}</span>${grp}${long?'<span class="iplus">▼</span>':''}</div>`
           +(route?`<div class="mroute">${route}</div>`:'')+note+`</div>`;
       }
     });
     stays.forEach(e=>{
       const brief=(e.detail||'').split(/[・｜]/)[0];
       const st=e.status==='pend'?' · 待訂':e.status==='ok'?' · 已訂':'';
-      h+=`<div class="stay"><span class="lbl">Stay</span><span class="nm">${esc(e.title)}</span>`
-        +`<span class="mt">${esc(brief)}${st}</span></div>${detailPanel(e)}`;
+      h+=`<div class="stay" data-key="${esc(d.date+'|stay|'+e.title)}"><span class="lbl">Stay</span><span class="nm">${esc(e.title)}</span>`
+        +`<span class="mt">${esc(brief)}${st}</span><span class="iplus">▼</span></div>${detailPanel(e)}`;
     });
     h+='</div>';
   }
   tl.innerHTML=h;
-  tl.querySelectorAll('.irow,.stay').forEach(r=>r.onclick=()=>{
-    const d=r.nextElementSibling;
-    if(!d||!d.classList.contains('idet'))return;
-    d.hidden=!d.hidden;
-    const p=r.querySelector('.iplus');if(p)p.textContent=d.hidden?'▼':'▲';
-    const mb=d.querySelector('.mapbox');
-    if(mb&&!mb.innerHTML)mb.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${mb.dataset.q}&output=embed"></iframe><a href="https://www.google.com/maps/search/?api=1&query=${mb.dataset.q}" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>`;
+  /* 展開目標：mrow 是內部的 .mext，其餘是緊鄰的 .idet */
+  const setOpen=(r,open)=>{
+    const t=r.classList.contains('mrow')?r.querySelector('.mext'):r.nextElementSibling;
+    if(!t)return;
+    t.hidden=!open;
+    const p=r.querySelector('.iplus');if(p)p.textContent=open?'▲':'▼';
+    if(open){
+      const mb=(t.querySelector&&t.querySelector('.mapbox'))||null;
+      if(mb&&!mb.innerHTML)mb.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${mb.dataset.q}&output=embed"></iframe><a href="https://www.google.com/maps/search/?api=1&query=${mb.dataset.q}" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>`;
+    }
+  };
+  tl.querySelectorAll('[data-key]').forEach(r=>{
+    r.onclick=()=>{
+      const k=r.dataset.key;
+      openSet.has(k)?openSet.delete(k):openSet.add(k);
+      setOpen(r,openSet.has(k));
+    };
+    if(openSet.has(r.dataset.key))setOpen(r,true);
   });
 }
 const briefbtn=document.getElementById('briefbtn'),brief=document.getElementById('brief');
