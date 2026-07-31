@@ -110,7 +110,8 @@
   .stay .lbl{font-size:9.5px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase;flex:none;}
   .stay .nm{font-family:var(--serif);font-weight:700;font-size:13.5px;}
   .stay .mt{color:var(--ink3);font-size:12px;}
-  .sdet{margin:0 12px 12px;background:#F5F3ED;border-radius:0 0 11px 11px;padding:0 13px 11px;}
+  .sdet{margin:0 12px 12px;background:#F5F3ED;border-radius:0 0 11px 11px;padding:0 13px 11px;
+    display:flow-root;} /* 擋掉子元素 margin-collapse，否則純章卡片會與 STAY 列裂開 */
   .stay.solo{border-radius:11px;margin-bottom:12px;padding-bottom:10px;}
 
   .dtl{font-size:12.5px;color:var(--ink2);line-height:1.75;word-break:break-word;}
