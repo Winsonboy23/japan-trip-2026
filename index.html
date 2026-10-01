@@ -336,7 +336,8 @@ const SEED=[
   {kind:'day',date:'10/19',weekday:'一',place:'京都 → 關西機場'},
   {kind:'stop',type:'checkout',title:'京都 Airbnb 退房',time:'09:40',detail:'回台的 6 人步行 10 分到京都站',tag:'',status:'ok',who:['all']},
   {kind:'move',from:'京都 10:00',to:'關西機場 11:24',mode:'train',duration:'1h24m',note:'**はるか17号 京都 10:00 → 關西機場 11:24（T1）**\n- **王家組用周遊券劃位**\n- **Maggie・Tai・芝芝買訪日旅客「はるか片道きっぷ」¥2,200 並劃同一班**：他們的高山・北陸券 10/17 已到期，也不含はるか\n- 備案はるか15号 09:30 → 10:54；11:30 報到，距起飛 2h15',who:['M','T','Z','K']},
-  {kind:'stop',type:'flight',title:'AirAsia AK171　大阪 KIX → 高雄 KHH',time:'13:45 → 16:00',detail:'3h15m｜6 位返台（Maggie・Tai・芝芝・王家×3）',tag:'',status:'ok',who:['M','T','Z','K']},
+  {kind:'stop',type:'flight',title:'AirAsia AK171　大阪 KIX → 高雄 KHH',time:'13:45 → 16:00',detail:'3h15m｜5 位返台（Tai・芝芝・王家×3）',tag:'',status:'ok',who:['T','Z','K']},
+  {kind:'stop',type:'flight',title:'Maggie　大阪 KIX → 台北桃園 TPE',time:'待填',detail:'航班與起飛時間待填｜起飛 13:30 之後跟大家同搭はるか17号，更早改はるか13号 08:45 或 15号 09:30｜搭 Peach 在 T2，KIX 站出來搭免費接駁車約 10 分；其他航空多在 T1',tag:'',status:'pend',who:['M']},
   {kind:'stop',type:'note',title:'Winson 續留日本',time:'',detail:'10/19 – 10/27 住宿與行程待安排（動線往神戶收）｜京都 → 三ノ宮：JR 新快速約 51 分・¥1,110，白天每 15 分一班',tag:'',status:'pend',who:['W']},
 
   {kind:'day',date:'10/27',weekday:'二',place:'神戶 → 台北'},
@@ -351,7 +352,8 @@ let autoScrolled=false;    /* 載入時捲到今天對應的日期卡，只做�
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 /* 行程資料裡用 **文字** 標粗體（劃位車次用），先 esc 再轉 <b> */
 function fmt(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');}
-function isSecret(e){const w=e.who||['all'];return !w.includes('all')&&w.every(id=>SECRET.includes(id));}
+/* 只藏「有 Winson 且全是 SECRET 成員」的項目：Maggie 自己的班機（who:['M']）照常顯示 */
+function isSecret(e){const w=e.who||['all'];return !w.includes('all')&&w.includes('W')&&w.every(id=>SECRET.includes(id));}
 function groupsOf(e){const w=e.who||['all'];if(w.includes('all'))return G_ORDER;return G_ORDER.filter(g=>GROUPS[g].members.some(id=>w.includes(id)));}
 function isVis(e){
   if(!unlocked&&isSecret(e))return false;
