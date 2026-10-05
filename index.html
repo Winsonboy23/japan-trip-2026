@@ -89,6 +89,12 @@
     border:1px solid #D3E3DE;border-radius:12px;padding:11px 14px;text-decoration:none;}
   .dlink .arr{flex:none;font-size:13px;}
   .dlink:active{opacity:.7;}
+  .kobemag{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px;
+    font-size:15px;font-weight:500;line-height:1.5;color:#fff;background:var(--accent);border-radius:16px;
+    padding:15px 18px;text-decoration:none;box-shadow:var(--shadow);}
+  .kobemag .arr{flex:none;font-size:16px;}
+  .kobemag:active{opacity:.8;}
+  .kobemag:focus-visible,.dlink:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .irow{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;border-top:1px solid #F4F2EC;}
   .irow.first{border-top:0;}
   .itime{font-size:12px;color:var(--ink2);flex:none;width:56px;padding-top:5px;
@@ -265,13 +271,15 @@ const G_ORDER=['A','B'];
 /* 只屬於這些人的項目預設隱藏，點標題「大阪」輸入密碼才顯示（純前端遮蔽，原始碼仍看得到） */
 const SECRET=['W','M'];
 const PASSCODE='0420';
+/* 「神戶」標籤：不用密碼，直接顯示 Winson・Maggie 在神戶的 10/10、10/11 和 10/12 早上，最上面放毛線雜誌按鈕 */
+const KOBE={days:['10/10','10/11','10/12'],place:{'10/12':'神戶 → 大阪'},mag:'knit-kobe.html'};
 
 /* ===== 行程內容寫死在這裡：要改就改這個陣列後重新 push =====
    kind:'day'  → 日期分隔（date/weekday/place；place 是當天卡片標題）
    kind:'stop' → 行程卡（type: flight|hotel|checkout|spot|meal|note；status: ok|pend）
                  加 map:'地點關鍵字' → 標題可點，展開 Google 地圖
    kind:'move' → 兩點間移動（mode: 見 MODES；duration；from/to；note）
-   kind:'link' → 放在當天卡片最上面的按鈕（label；url），點了開新分頁
+   kind:'link' → 放在當天卡片最上面的按鈕（label；url）：站內頁面直接跳過去，外部網址開新分頁
    who: ['all'] 或 ['W','M',...]（W=Winson M=Maggie T=Tai Z=芝芝 K=王家×3）
         顯示時歸成兩組：飛驒高山組=W/M/T/Z、王家組=K；只含 W/M 的項目要解鎖才看得到 */
 const SEED=[
@@ -283,7 +291,7 @@ const SEED=[
   {kind:'stop',type:'meal',title:'30F GOCOCU 晚餐自助',time:'18:00',detail:'訂 18:00 入場，限 90 分｜週末 ¥6,500／人，含稅與服務費｜咖啡和軟性飲料喝到飽，汽水和酒另付｜招牌石窯烤牛肉，10 月有秋季限定菜｜TableCheck 訂位｜飯後還有精神可到 2F バー レスタカード（17:00–23:00）',tag:'晚餐',status:'pend',who:['W','M'],map:'神戸ポートピアホテル'},
 
   {kind:'day',date:'10/11',weekday:'日',place:'神戶'},
-  {kind:'link',label:'🧶 神戶毛線雜誌・三家店的照片與路線',url:'https://claude.ai/artifact/24cDhDiFL7cQQTFp4XFhQh',who:['W','M']},
+  {kind:'link',label:'🧶 神戶毛線雜誌・三家店的照片與路線',url:'knit-kobe.html',who:['W','M']},
   {kind:'move',from:'飯店 10:00',to:'三宮',mode:'bus',duration:'約 20 分・免費',note:'飯店免費接駁車，每 20 分一班（:00／:20／:40 發）\n- 在ミント神戸 1F 巴士總站下車',who:['W','M']},
   {kind:'stop',type:'spot',title:'ユニオンウール 毛線行',time:'10:30',detail:'神戶老字號毛線行，世界各國的毛線和手藝材料都有｜三宮站走約 3 分，北長狭通 1-30-16｜10:00–19:00，週一公休',tag:'毛線',status:'',who:['W','M'],map:'ユニオンウール 神戸'},
   {kind:'stop',type:'spot',title:'三宮中心街 → 元町商店街',time:'11:00',detail:'兩條拱廊商店街連在一起，從三宮一路逛到元町，沿線有ミント神戸、さんちか地下街、大丸神戶（舊居留地）',tag:'逛街',status:'',who:['W','M'],map:'三宮センター街'},
@@ -379,6 +387,8 @@ function fmt(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');}
 function isSecret(e){const w=e.who||['all'];return !w.includes('all')&&w.includes('W')&&w.every(id=>SECRET.includes(id));}
 function groupsOf(e){const w=e.who||['all'];if(w.includes('all'))return G_ORDER;return G_ORDER.filter(g=>GROUPS[g].members.some(id=>w.includes(id)));}
 function isVis(e){
+  /* 神戶標籤不用密碼；卡片裡的雜誌按鈕不重複放，已經放在最上面 */
+  if(filter==='kobe')return e.kind!=='link'&&isSecret(e);
   if(!unlocked&&isSecret(e))return false;
   if(filter==='all')return true;
   return groupsOf(e).includes(filter);
@@ -386,10 +396,16 @@ function isVis(e){
 
 function buildFilter(){
   const fb=document.getElementById('filterbar');
-  const chips=[{id:'all',label:'全部'}].concat(G_ORDER.map(id=>({id,label:GROUPS[id].name})));
+  const chips=[{id:'all',label:'全部'}].concat(G_ORDER.map(id=>({id,label:GROUPS[id].name})),[{id:'kobe',label:'神戶'}]);
   fb.innerHTML=chips.map(c=>`<button class="pchip ${filter===c.id?'sel':''}" data-f="${c.id}">${esc(c.label)}</button>`).join('');
-  fb.querySelectorAll('.pchip').forEach(b=>b.onclick=()=>{filter=b.dataset.f;buildFilter();render();});
-  document.getElementById('fcap').textContent = filter==='all' ? '' : `只顯示${GROUPS[filter].name}的行程`;
+  fb.querySelectorAll('.pchip').forEach(b=>b.onclick=()=>{
+    filter=b.dataset.f;
+    history.replaceState(null,'',filter==='kobe'?'#kobe':location.pathname+location.search);
+    buildFilter();render();
+  });
+  document.getElementById('fcap').textContent = filter==='all' ? ''
+    : filter==='kobe' ? '只顯示 Winson・Maggie 在神戶的行程：10/10、10/11 和 10/12 早上'
+    : `只顯示${GROUPS[filter].name}的行程`;
 }
 
 /* 卡片展開後才看得到的內容：說明、標籤、同行組別、地圖 */
@@ -429,10 +445,11 @@ function hhmm(t){const m=(t||'').match(/\d{1,2}:\d{2}/);return m?m[0]:'';}
 
 function render(){
   const tl=document.getElementById('tl');const E=SEED;
-  let h='';
+  let h=filter==='kobe'?`<a class="kobemag" href="${KOBE.mag}">🧶 神戶毛線雜誌・三家店的照片與路線<span class="arr">→</span></a>`:'';
   for(let i=0;i<E.length;i++){
     if(E[i].kind!=='day')continue;
     const d=E[i],items=[];
+    if(filter==='kobe'&&!KOBE.days.includes(d.date))continue;
     for(let j=i+1;j<E.length&&E[j].kind!=='day';j++)if(isVis(E[j]))items.push(E[j]);
     if(!items.length)continue;
     const stops=items.filter(e=>e.kind==='stop');
@@ -443,7 +460,7 @@ function render(){
     const pend=stops.some(e=>e.status==='pend');
     h+=`<div class="daycard${closedSet.has(d.date)?' closed':''}" data-day="${esc(d.date)}">`
       +`<div class="dhead"><div class="dnum">${esc(d.date.split('/')[1])}</div>`
-      +`<div class="dmid"><div class="dplace">${esc(d.place||d.date)}</div>`
+      +`<div class="dmid"><div class="dplace">${esc((filter==='kobe'&&KOBE.place[d.date])||d.place||d.date)}</div>`
       +`<div class="dsub">週${esc(d.weekday)}${n?' · '+n+' 項':''}</div></div>`
       +`<div class="dright">${pend?'<span class="chip-pend">待訂</span>':''}`
       +`${range?`<span class="chip-time">${range}</span>`:''}<span class="dchev">▼</span></div></div>`
@@ -451,7 +468,11 @@ function render(){
     /* 天以下全部攤開：行程點（含細節）與交通照原始順序排列，只有天可收折 */
     const stays=[];let first=true;
     items.forEach(e=>{
-      if(e.kind==='link'){h+=`<a class="dlink" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.label)}<span class="arr">↗</span></a>`;return;}
+      if(e.kind==='link'){
+        const ext=/^https?:/.test(e.url);
+        h+=`<a class="dlink" href="${esc(e.url)}"${ext?' target="_blank" rel="noopener"':''}>${esc(e.label)}<span class="arr">${ext?'↗':'→'}</span></a>`;
+        return;
+      }
       if(e.kind==='stop'&&e.type==='hotel'){stays.push(e);return;}
       if(e.kind==='stop'){
         const seg=(e.time||'').split('→');
@@ -499,6 +520,7 @@ document.getElementById('lockword').onclick=()=>{
   unlocked=true;
   render();
 };
+if(location.hash==='#kobe')filter='kobe';
 buildFilter();render();
 </script>
 </body>
