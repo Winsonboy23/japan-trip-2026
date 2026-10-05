@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>毛線小旅行｜神戶・金澤・京都 2026 秋</title>
+<meta name="description" content="照行程排好的九家毛線店：神戶 10/11、金澤 10/13、京都 10/17–10/18。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3EEE4;--sheet:#FBF8F1;--ink:#1F1A17;--ink2:#5E564E;--ink3:#8F857A;--rule:#D9CFBF;
+--red:#B5413A;--teal:#2F6B66;--gold:#C9922B;--cream:#F5E7D6;
+--serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+--sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+--disp:"Playfair Display","Times New Roman",serif;}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.85 var(--sans)}
+a{color:var(--red)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.cover{background:var(--sheet);border-bottom:1px solid var(--rule);padding:22px 0 34px}
+.mast{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:4px double var(--ink);padding-bottom:10px}
+.logo{font-family:var(--disp);font-weight:700;font-size:clamp(46px,15vw,96px);line-height:.9;letter-spacing:-.01em}
+.logo i{color:var(--red);font-weight:400}
+.issue{font-size:11px;line-height:1.6;letter-spacing:.16em;color:var(--ink2);text-align:right;padding-bottom:6px}
+.mast-sub{margin:10px 0 0;font-family:var(--serif);font-weight:600;letter-spacing:.5em;font-size:14px;color:var(--ink2)}
+.hero{margin:18px 0 22px}
+.hero svg,.map svg{display:block;width:100%;height:auto}
+.cover h1{margin:0;font-family:var(--serif);font-weight:900;font-size:clamp(30px,8.4vw,52px);line-height:1.28;letter-spacing:.02em}
+.dek{margin:14px 0 0;font-size:17px;color:var(--ink2)}
+.toc{margin-top:26px;border-top:2px solid var(--ink)}
+.toc a{display:grid;grid-template-columns:48px 1fr auto;align-items:baseline;gap:10px;padding:12px 2px;border-bottom:1px solid var(--rule);color:var(--ink);text-decoration:none}
+.toc .n{font-family:var(--disp);font-style:italic;font-size:26px;color:var(--red);line-height:1}
+.toc .c{font-family:var(--serif);font-weight:900;font-size:19px}
+.toc small{font-family:var(--disp);font-style:italic;font-weight:400;font-size:13px;color:var(--ink3);margin-left:8px;letter-spacing:.06em}
+.toc .d{font-size:13px;color:var(--ink2);white-space:nowrap}
+.city{padding:48px 0 8px}
+.sec-head{border-top:6px solid var(--ink);padding-top:12px}
+.sec-num{float:right;font-family:var(--disp);font-weight:700;font-size:clamp(72px,22vw,120px);line-height:.85;color:var(--red);margin:0 0 4px 12px}
+.sec-kicker{margin:0;font-size:12px;letter-spacing:.2em;font-weight:700;color:var(--ink2)}
+.sec-head h2{margin:8px 0 0;font-family:var(--serif);font-weight:900;font-size:clamp(26px,7vw,40px);line-height:1.3}
+.intro{clear:both;margin:0;padding-top:18px;font-size:17px}
+.intro::first-letter{float:left;font-family:var(--serif);font-weight:900;font-size:3.3em;line-height:1;margin:6px 10px 0 0;color:var(--red)}
+.map{margin:26px 0 6px;background:var(--sheet);border:1px solid var(--rule);padding:10px}
+figcaption{margin-top:8px;font-size:13px;line-height:1.6;color:var(--ink3);font-style:italic}
+.day{display:flex;align-items:center;gap:12px;margin:30px 0 0;font-family:var(--serif);font-weight:900;font-size:20px;color:var(--red)}
+.day::after{content:"";flex:1;border-top:1px solid var(--rule)}
+.day.teal{color:var(--teal)}
+.shop,.break{position:relative;padding:22px 0 24px 64px;border-bottom:1px solid var(--rule)}
+.shop .t,.break .t{position:absolute;left:0;top:24px;font-family:var(--disp);font-weight:700;font-size:19px;line-height:1;color:var(--red)}
+.shop .no{position:absolute;left:0;top:52px;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font:700 14px/30px var(--sans);text-align:center}
+.shop.teal .t,.shop.teal .kicker{color:var(--teal)}
+.shop.teal .no{background:var(--teal)}
+.kicker{margin:0;font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--red)}
+.shop h3{margin:4px 0 0;font-family:var(--serif);font-weight:900;font-size:23px;line-height:1.35}
+.en{display:block;font-family:var(--disp);font-style:italic;font-weight:400;font-size:15px;color:var(--ink3);letter-spacing:.02em}
+.body{margin:10px 0 0}
+.facts{margin:14px 0 0;display:grid;grid-template-columns:2.6em 1fr;gap:3px 12px;font-size:14px;line-height:1.7;background:var(--sheet);border-left:3px solid var(--gold);padding:10px 14px}
+.facts dt{color:var(--ink3)}
+.facts dd{margin:0}
+.facts a{text-decoration:none;font-weight:500}
+.break{padding-top:20px;padding-bottom:20px;font-size:15px;color:var(--ink2)}
+.break .t{top:22px;color:var(--teal);font-size:17px}
+.pull{margin:30px 0 8px;padding:20px 4px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);font-family:var(--serif);font-weight:900;font-size:clamp(21px,6vw,30px);line-height:1.5;text-align:center}
+.pull span{color:var(--red)}
+.note{margin:18px 0 0;padding:12px 14px;background:var(--cream);font-size:14px;color:var(--ink2)}
+.cal{margin:48px 0 0;padding:26px 22px 22px;background:var(--ink);color:var(--paper)}
+.cal h2{margin:0 0 4px;font-family:var(--serif);font-weight:900;font-size:24px}
+.cal .sub{margin:0 0 14px;font-size:13px;color:#BDB2A5}
+.cal table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6}
+.cal th{text-align:left;font-weight:500;color:#BDB2A5;border-bottom:1px solid #4A433D;padding:6px 8px 6px 0}
+.cal td{vertical-align:top;border-bottom:1px solid #3A342F;padding:8px 8px 8px 0}
+.cal td:first-child{white-space:nowrap}
+.cal .off{color:#F0A497}
+.tips{margin:16px 0 0;padding-left:1.2em;font-size:14px}
+.tips li{margin-top:6px}
+.tips b{color:#fff}
+.foot{padding:30px 20px 64px;font-size:13px;line-height:1.7;color:var(--ink3)}
+.foot a{color:var(--ink2)}
+.foot ul{margin:6px 0 16px;padding-left:1.2em}
+@media (min-width:900px){
+  .wrap{max-width:1000px;padding:0 32px}
+  .shops{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+  .intro{max-width:46em}
+  .map{max-width:720px}
+}
+</style>
+</head>
+<body>
+<header class="cover"><div class="wrap">
+<div class="mast"><div class="logo">Knit <i>Trip</i></div><div class="issue">2026 秋季特集<br>神戶・金澤・京都</div></div>
+<p class="mast-sub">毛線小旅行</p>
+<figure class="hero"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-label="毛線球、棒針和試織片的插圖"><rect width="800" height="440" fill="#EFE4D2"/><circle cx="650" cy="110" r="150" fill="#F6EBDA"/><rect x="548" y="78" width="190" height="200" rx="8" fill="#F6E5C2" stroke="#D6B675" stroke-width="3"/><path d="M566 102 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M590 102 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M614 102 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M638 102 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M662 102 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M686 102 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M710 102 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 128 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M590 128 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M614 128 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M638 128 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M662 128 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M686 128 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M710 128 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 154 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M590 154 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M614 154 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M638 154 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M662 154 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M686 154 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M710 154 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 180 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M590 180 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M614 180 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M638 180 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M662 180 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M686 180 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M710 180 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 206 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M590 206 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M614 206 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M638 206 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M662 206 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M686 206 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M710 206 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 232 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M590 232 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M614 232 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M638 232 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M662 232 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M686 232 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M710 232 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 258 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M590 258 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M614 258 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M638 258 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M662 258 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M686 258 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M710 258 l9 14 l9 -14" fill="none" stroke="#C9922B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="534" y1="78" x2="752" y2="78" stroke="#A87B4F" stroke-width="8" stroke-linecap="round"/><circle cx="752" cy="78" r="10" fill="#7A5634"/><path d="M500 262 C560 330 600 300 610 278" fill="none" stroke="#C9922B" stroke-width="5" stroke-linecap="round"/><circle cx="252" cy="262" r="122" fill="#B5413A"/><ellipse cx="252" cy="262" rx="115.9" ry="48.8" transform="rotate(-28 252 262)" fill="none" stroke="#7E2A25" stroke-width="3.5" opacity=".5"/><ellipse cx="252" cy="262" rx="115.9" ry="75.6" transform="rotate(-28 252 262)" fill="none" stroke="#7E2A25" stroke-width="3.5" opacity=".5"/><ellipse cx="252" cy="262" rx="115.9" ry="26.8" transform="rotate(-28 252 262)" fill="none" stroke="#7E2A25" stroke-width="3.5" opacity=".5"/><ellipse cx="252" cy="262" rx="63.4" ry="115.9" transform="rotate(24 252 262)" fill="none" stroke="#7E2A25" stroke-width="3.5" opacity=".5"/><ellipse cx="252" cy="262" rx="97.6" ry="115.9" transform="rotate(24 252 262)" fill="none" stroke="#7E2A25" stroke-width="3.5" opacity=".5"/><circle cx="252" cy="262" r="122" fill="none" stroke="#7E2A25" stroke-width="3.5"/><circle cx="458" cy="318" r="86" fill="#C9922B"/><ellipse cx="458" cy="318" rx="81.7" ry="34.4" transform="rotate(-28 458 318)" fill="none" stroke="#8E6418" stroke-width="3.5" opacity=".5"/><ellipse cx="458" cy="318" rx="81.7" ry="53.3" transform="rotate(-28 458 318)" fill="none" stroke="#8E6418" stroke-width="3.5" opacity=".5"/><ellipse cx="458" cy="318" rx="81.7" ry="18.9" transform="rotate(-28 458 318)" fill="none" stroke="#8E6418" stroke-width="3.5" opacity=".5"/><ellipse cx="458" cy="318" rx="44.7" ry="81.7" transform="rotate(24 458 318)" fill="none" stroke="#8E6418" stroke-width="3.5" opacity=".5"/><ellipse cx="458" cy="318" rx="68.8" ry="81.7" transform="rotate(24 458 318)" fill="none" stroke="#8E6418" stroke-width="3.5" opacity=".5"/><circle cx="458" cy="318" r="86" fill="none" stroke="#8E6418" stroke-width="3.5"/><circle cx="612" cy="372" r="52" fill="#7C6CA8"/><ellipse cx="612" cy="372" rx="49.4" ry="20.8" transform="rotate(-28 612 372)" fill="none" stroke="#54477F" stroke-width="3.5" opacity=".5"/><ellipse cx="612" cy="372" rx="49.4" ry="32.2" transform="rotate(-28 612 372)" fill="none" stroke="#54477F" stroke-width="3.5" opacity=".5"/><ellipse cx="612" cy="372" rx="49.4" ry="11.4" transform="rotate(-28 612 372)" fill="none" stroke="#54477F" stroke-width="3.5" opacity=".5"/><ellipse cx="612" cy="372" rx="27.0" ry="49.4" transform="rotate(24 612 372)" fill="none" stroke="#54477F" stroke-width="3.5" opacity=".5"/><ellipse cx="612" cy="372" rx="41.6" ry="49.4" transform="rotate(24 612 372)" fill="none" stroke="#54477F" stroke-width="3.5" opacity=".5"/><circle cx="612" cy="372" r="52" fill="none" stroke="#54477F" stroke-width="3.5"/><line x1="108" y1="92" x2="392" y2="404" stroke="#A87B4F" stroke-width="10" stroke-linecap="round"/><circle cx="108" cy="92" r="13" fill="#7A5634"/><line x1="404" y1="92" x2="124" y2="410" stroke="#A87B4F" stroke-width="10" stroke-linecap="round"/><circle cx="404" cy="92" r="13" fill="#7A5634"/></svg></figure>
+<h1>跟著毛線，<br>逛一趟關西與北陸</h1>
+<p class="dek">九家毛線店，照行程排好時間。神戶從三宮逛到元町，京都從町家老店一路走到嵐電沿線，順路就買得到。</p>
+<nav class="toc" aria-label="目錄">
+<a href="#kobe"><span class="n">01</span><span class="c">神戶<small>Kobe</small></span><span class="d">10/11 週日・4 家</span></a>
+<a href="#kanazawa"><span class="n">02</span><span class="c">金澤<small>Kanazawa</small></span><span class="d">10/13 週二・1 家</span></a>
+<a href="#kyoto"><span class="n">03</span><span class="c">京都<small>Kyoto</small></span><span class="d">10/17–10/18・4 家</span></a>
+</nav>
+</div></header>
+
+<main class="wrap">
+<section class="city" id="kobe">
+<div class="sec-head"><span class="sec-num">01</span><p class="sec-kicker">10.11 SUN ・ KOBE</p><h2>三宮到元町，<br>一條路逛完四家</h2></div>
+<p class="intro">早上搭飯店的免費接駁車到三宮，先逛車站旁邊的兩家，再沿著拱廊商店街走到元町。中午在南京町吃午餐，飯後去北歐毛線店，下午接著逛 umie。</p>
+<figure class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="10 月 11 日神戶毛線店路線示意圖"><rect width="600" height="520" fill="#FBF8F1"/><path d="M0 452 H600 V520 H0 Z" fill="#DCE7EA"/><text x="300" y="497" font-size="20" fill="#5F8590" text-anchor="middle" font-style="italic">神戶港</text><line x1="26" y1="176" x2="574" y2="176" stroke="#5E564E" stroke-width="7" stroke-linecap="round"/><line x1="26" y1="176" x2="574" y2="176" stroke="#FBF8F1" stroke-width="2.5" stroke-dasharray="12 12"/><rect x="170" y="228" width="300" height="32" rx="16" fill="#EADFC8"/><rect x="150" y="292" width="120" height="50" rx="10" fill="#F3D9D5" stroke="#C98B84" stroke-width="2"/><rect x="22" y="386" width="122" height="56" rx="10" fill="#E3EEEC" stroke="#9CC0B6" stroke-width="2"/><rect x="228" y="386" width="166" height="56" rx="10" fill="#E3EEEC" stroke="#9CC0B6" stroke-width="2"/><rect x="503" y="194" width="34" height="22" rx="5" fill="#5E564E"/><circle cx="512" cy="218" r="4" fill="#5E564E"/><circle cx="528" cy="218" r="4" fill="#5E564E"/><path d="M520 194 L390 100 L440 292 L180 244 L225 100 L225 292 M150 318 L80 320 L82 386 M144 414 L228 414" fill="none" stroke="#B5413A" stroke-width="4" stroke-dasharray="0.1 11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="180" cy="176" r="11" fill="#FBF8F1" stroke="#1F1A17" stroke-width="4"/><circle cx="470" cy="176" r="11" fill="#FBF8F1" stroke="#1F1A17" stroke-width="4"/><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="162" y="183" font-size="20" fill="#1F1A17" font-weight="700" text-anchor="end">元町站</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="492" y="160" font-size="20" fill="#1F1A17" font-weight="700">三ノ宮站</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="320" y="251" font-size="18" fill="#7C5E2A" text-anchor="middle">三宮中心街 ⇄ 元町商店街</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="210" y="325" font-size="22" fill="#8E3530" font-weight="700" text-anchor="middle">南京町</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="210" y="368" font-size="18" fill="#8E3530" text-anchor="middle">13:00 午餐</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="83" y="411" font-size="20" fill="#2F6B66" font-weight="700" text-anchor="middle">umie</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="83" y="433" font-size="18" fill="#2F6B66" text-anchor="middle">15:00</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="311" y="411" font-size="20" fill="#2F6B66" font-weight="700" text-anchor="middle">美利堅公園</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="311" y="433" font-size="18" fill="#2F6B66" text-anchor="middle">17:25 日落</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="520" y="244" font-size="17" fill="#5E564E" text-anchor="middle">接駁車</text><circle cx="390" cy="100" r="17" fill="#B5413A" stroke="#FBF8F1" stroke-width="4"/><text x="390" y="106" font-size="17" fill="#fff" font-weight="700" text-anchor="middle">1</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="416" y="96" font-size="24" fill="#1F1A17" font-weight="700">ユニオンウール</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="416" y="122" font-size="20" fill="#B5413A" font-weight="700">10:30</text><circle cx="440" cy="292" r="17" fill="#B5413A" stroke="#FBF8F1" stroke-width="4"/><text x="440" y="298" font-size="17" fill="#fff" font-weight="700" text-anchor="middle">2</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="466" y="290" font-size="24" fill="#1F1A17" font-weight="700">ユザワヤ</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="466" y="316" font-size="20" fill="#B5413A" font-weight="700">11:00</text><circle cx="225" cy="100" r="17" fill="#B5413A" stroke="#FBF8F1" stroke-width="4"/><text x="225" y="106" font-size="17" fill="#fff" font-weight="700" text-anchor="middle">3</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="251" y="96" font-size="24" fill="#1F1A17" font-weight="700">micono</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="251" y="122" font-size="20" fill="#B5413A" font-weight="700">12:15</text><circle cx="80" cy="320" r="17" fill="#B5413A" stroke="#FBF8F1" stroke-width="4"/><text x="80" y="326" font-size="17" fill="#fff" font-weight="700" text-anchor="middle">4</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="80" y="268" font-size="21" fill="#1F1A17" font-weight="700" text-anchor="middle">ヴェアルセ</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="80" y="293" font-size="20" fill="#B5413A" font-weight="700" text-anchor="middle">14:00</text><path d="M36 22 l9 20 h-18 z" fill="#5E564E"/><text x="36" y="62" font-size="15" fill="#5E564E" font-weight="700" text-anchor="middle">N</text></svg><figcaption>神戶毛線店路線示意圖，不按比例。圓圈數字是逛的順序。</figcaption></figure>
+<div class="shops">
+<article class="shop"><span class="t">10:30</span><span class="no">1</span><p class="kicker">老字號・世界毛線</p><h3>ユニオンウール<span class="en">Union Wool</span></h3><p class="body">神戶的老字號毛線行，從世界各國挑來的毛線和手藝材料都在這裡。離三宮站只要走幾分鐘，很適合當第一站。</p><dl class="facts"><dt>營業</dt><dd>10:00–19:00</dd><dt>公休</dt><dd>週一</dd><dt>位置</dt><dd>北長狭通 1-30-16，三宮站走約 3 分</dd><dt>電話</dt><dd>078-331-8854</dd><dt>連結</dt><dd><a href="https://www.union-wool.com/" target="_blank" rel="noopener">官網 ↗</a></dd></dl></article>
+<article class="shop"><span class="t">11:00</span><span class="no">2</span><p class="kicker">大型手藝店</p><h3>ユザワヤ 神戸店<span class="en">Yuzawaya</span></h3><p class="body">1955 年創業的手藝材料連鎖店。毛線、棒針、鉤針和各種小工具一次買齊，想補基本款材料來這裡最方便。</p><dl class="facts"><dt>營業</dt><dd>10:00–20:00</dd><dt>位置</dt><dd>三宮町 1-3-26</dd><dt>電話</dt><dd>078-393-4141</dd><dt>連結</dt><dd><a href="https://www.yuzawaya.co.jp/shop/detail/318.html" target="_blank" rel="noopener">官網 ↗</a></dd></dl></article>
+<article class="shop"><span class="t">12:15</span><span class="no">3</span><p class="kicker">可以試織</p><h3>micono 神戸元町本店<span class="en">micono</span></h3><p class="body">店主在德國住了二十多年，店裡有約 300 種進口毛線和棒針。最特別的是挑好針和線之後，可以先在店裡試織幾排，再決定要不要買。</p><dl class="facts"><dt>營業</dt><dd>11:00–16:00，下午 4 點就關門</dd><dt>公休</dt><dd>週一</dd><dt>位置</dt><dd>北長狭通 5-2-19 コフィオ神戸元町 103，元町站北邊</dd><dt>電話</dt><dd>078-958-6060</dd><dt>連結</dt><dd><a href="https://www.miconoyarn.jp/" target="_blank" rel="noopener">官網 ↗</a></dd></dl></article>
+</div>
+<p class="pull">在 <span>micono</span>，<br>棒針和毛線都能先試織再買。</p>
+<p class="break"><span class="t">13:00</span>南京町午餐，中華街小吃邊走邊吃。</p>
+<div class="shops">
+<article class="shop"><span class="t">14:00</span><span class="no">4</span><p class="kicker">北歐毛線</p><h3>ヴェアルセ<span class="en">Værelse</span></h3><p class="body">專賣北歐和法國進口的毛線，丹麥 ISAGER 的線特別齊全，也有開編織課。就在南京町附近，吃完午餐走過去剛好。</p><dl class="facts"><dt>營業</dt><dd>11:00–18:00</dd><dt>公休</dt><dd>週二、週三</dd><dt>位置</dt><dd>栄町通 3-1-7 栄町ビルディング 3F</dd><dt>連結</dt><dd><a href="https://www.instagram.com/vaerelse_fyn/" target="_blank" rel="noopener">IG ↗</a></dd></dl></article>
+</div>
+<p class="break"><span class="t">15:00</span>走到 umie・馬賽克逛街，17:25 在美利堅公園看日落。</p>
+</section>
+
+<section class="city" id="kanazawa">
+<div class="sec-head"><span class="sec-num">02</span><p class="sec-kicker">10.13 TUE ・ KANAZAWA ・ 可選</p><h2>兼六園之後，<br>順路上百貨七樓</h2></div>
+<p class="intro">金澤市中心沒有毛線專賣店。逛完兼六園往香林坊走，香林坊大和百貨 7 樓的ホビーラホビーレ有原創毛線和編織材料包，關門前還來得及。</p>
+<div class="shops">
+<article class="shop"><span class="t">18:00</span><p class="kicker">日系手藝品牌</p><h3>ホビーラホビーレ 香林坊大和<span class="en">Hobbyra Hobbyre</span></h3><p class="body">日本手藝品牌，有原創毛線、編織材料包、LIBERTY 印花布和刺繡用品，也開手作課。</p><dl class="facts"><dt>營業</dt><dd>10:00–19:00</dd><dt>位置</dt><dd>香林坊大和百貨 7F，兼六園走約 10 分</dd><dt>電話</dt><dd>076-220-1295</dd><dt>連結</dt><dd><a href="https://hobbyra-hobbyre.com/wp/site/sp/store/1125.html" target="_blank" rel="noopener">官網 ↗</a></dd></dl></article>
+</div>
+</section>
+
+<section class="city" id="kyoto">
+<div class="sec-head"><span class="sec-num">03</span><p class="sec-kicker">10.17 – 10.18 ・ KYOTO</p><h2>町家老店、<br>雜誌選物、<br>手染毛線</h2></div>
+<p class="intro">週六從二條一路往西逛：先去毛線大廠的町家直營店，再到四條烏丸看編織雜誌的店，下午搭嵐電到有栖川，吃塊蛋糕挑手染線，再順路去嵐山。週日到一乗寺秤重買線。</p>
+<figure class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" role="img" aria-label="10 月 17、18 日京都毛線店分布示意圖"><rect width="600" height="560" fill="#FBF8F1"/><path d="M532 0 C518 90 548 160 530 240 C514 320 546 390 528 470 C520 510 534 540 530 560" fill="none" stroke="#C9DDE4" stroke-width="14" stroke-linecap="round"/><line x1="20" y1="460" x2="580" y2="460" stroke="#5E564E" stroke-width="7" stroke-linecap="round"/><line x1="20" y1="460" x2="580" y2="460" stroke="#FBF8F1" stroke-width="2.5" stroke-dasharray="12 12"/><rect x="424" y="480" width="120" height="40" rx="10" fill="#EFE8DC"/><path d="M400 460 L250 250 L250 140 M250 250 L400 330 L380 380 L290 345 L110 300 L110 205 M110 300 L40 290" fill="none" stroke="#B5413A" stroke-width="4" stroke-dasharray="0.1 11" stroke-linecap="round" stroke-linejoin="round"/><path d="M400 460 L530 160 L572 78" fill="none" stroke="#2F6B66" stroke-width="4" stroke-dasharray="0.1 11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="400" cy="460" r="12" fill="#FBF8F1" stroke="#1F1A17" stroke-width="4"/><circle cx="250" cy="250" r="8" fill="#FBF8F1" stroke="#5E564E" stroke-width="3"/><circle cx="400" cy="330" r="8" fill="#FBF8F1" stroke="#5E564E" stroke-width="3"/><circle cx="290" cy="345" r="8" fill="#FBF8F1" stroke="#5E564E" stroke-width="3"/><circle cx="530" cy="160" r="8" fill="#FBF8F1" stroke="#5E564E" stroke-width="3"/><circle cx="110" cy="300" r="8" fill="#FBF8F1" stroke="#5E564E" stroke-width="3"/><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="386" y="496" font-size="22" fill="#1F1A17" font-weight="700" text-anchor="end">京都站</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="484" y="507" font-size="18" fill="#5E564E" text-anchor="middle">住處</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="234" y="257" font-size="20" fill="#5E564E" text-anchor="end">二條</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="416" y="337" font-size="20" fill="#5E564E">四條</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="276" y="374" font-size="18" fill="#5E564E" text-anchor="end">四条大宮</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="514" y="166" font-size="20" fill="#5E564E" text-anchor="end">出町柳</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="110" y="332" font-size="18" fill="#5E564E" text-anchor="middle">有栖川</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="22" y="276" font-size="18" fill="#5E564E">←嵐山</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="560" y="330" font-size="18" fill="#5F8590" text-anchor="middle" font-style="italic">鴨川</text><circle cx="250" cy="140" r="17" fill="#B5413A" stroke="#FBF8F1" stroke-width="4"/><text x="250" y="146" font-size="17" fill="#fff" font-weight="700" text-anchor="middle">1</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="276" y="136" font-size="24" fill="#1F1A17" font-weight="700">イトコバコ</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="276" y="162" font-size="20" fill="#B5413A" font-weight="700">10:30</text><circle cx="380" cy="380" r="17" fill="#B5413A" stroke="#FBF8F1" stroke-width="4"/><text x="380" y="386" font-size="17" fill="#fff" font-weight="700" text-anchor="middle">2</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="406" y="388" font-size="22" fill="#1F1A17" font-weight="700">WALNUT</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="406" y="412" font-size="20" fill="#B5413A" font-weight="700">12:00</text><circle cx="110" cy="205" r="17" fill="#B5413A" stroke="#FBF8F1" stroke-width="4"/><text x="110" y="211" font-size="17" fill="#fff" font-weight="700" text-anchor="middle">3</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="136" y="201" font-size="24" fill="#1F1A17" font-weight="700">eenie</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="136" y="227" font-size="20" fill="#B5413A" font-weight="700">14:30</text><circle cx="572" cy="78" r="17" fill="#2F6B66" stroke="#FBF8F1" stroke-width="4"/><text x="572" y="84" font-size="17" fill="#fff" font-weight="700" text-anchor="middle">4</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="548" y="76" font-size="24" fill="#1F1A17" font-weight="700" text-anchor="end">AVRIL</text><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="548" y="102" font-size="20" fill="#2F6B66" font-weight="700" text-anchor="end">10/18 11:00</text><path d="M30 542 L80 542" fill="none" stroke="#B5413A" stroke-width="4" stroke-dasharray="0.1 11" stroke-linecap="round" stroke-linejoin="round"/><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="92" y="548" font-size="18" fill="#5E564E">10/17 週六</text><path d="M210 542 L260 542" fill="none" stroke="#2F6B66" stroke-width="4" stroke-dasharray="0.1 11" stroke-linecap="round" stroke-linejoin="round"/><text paint-order="stroke" stroke="#FBF8F1" stroke-width="6" stroke-linejoin="round" x="272" y="548" font-size="18" fill="#5E564E">10/18 週日</text><path d="M36 22 l9 20 h-18 z" fill="#5E564E"/><text x="36" y="62" font-size="15" fill="#5E564E" font-weight="700" text-anchor="middle">N</text></svg><figcaption>京都毛線店分布示意圖，不按比例。紅色是 10/17 的路線，綠色是 10/18。</figcaption></figure>
+<h4 class="day">10/17 週六</h4>
+<div class="shops">
+<article class="shop"><span class="t">10:30</span><span class="no">1</span><p class="kicker">大廠直營・京町家</p><h3>イトコバコ<span class="en">itokobaco</span></h3><p class="body">日本毛線大廠 Hamanaka 的直營店，總公司就在京都。店面由京町家改建，2025 年 4 月重新裝修開幕，專賣手編毛線和手藝雜貨。</p><dl class="facts"><dt>營業</dt><dd>10:00–18:00</dd><dt>公休</dt><dd>週四</dd><dt>交通</dt><dd>京都站搭 JR 嵯峨野線到二條約 6 分，再走 13 分；或搭市巴士到千本丸太町站走 2 分</dd><dt>位置</dt><dd>上京區主税町 1071</dd><dt>電話</dt><dd>075-822-0011</dd><dt>連結</dt><dd><a href="https://itokobaco.com/" target="_blank" rel="noopener">官網 ↗</a></dd></dl></article>
+<article class="shop"><span class="t">12:00</span><span class="no">2</span><p class="kicker">編織雜誌的店</p><h3>WALNUT Kyoto<span class="en">amirisu</span></h3><p class="body">編織雜誌 amirisu 的旗艦店，店裡有很多雜誌作品的實品，可以看著成品挑線。週日和週一公休，這趟只有 10/17 去得到。</p><dl class="facts"><dt>營業</dt><dd>週二至週六 11:00–17:00</dd><dt>公休</dt><dd>週日、週一</dd><dt>交通</dt><dd>二條站搭地下鐵東西線到烏丸御池，轉烏丸線到四條</dd><dt>位置</dt><dd>下京區菊屋町 745 2F</dd><dt>電話</dt><dd>075-708-7210</dd><dt>連結</dt><dd><a href="https://shop.amirisu.com/en-us/pages/walnut-kyoto-tokyo" target="_blank" rel="noopener">官網 ↗</a></dd></dl></article>
+</div>
+<p class="break"><span class="t">13:00</span>午餐在四條烏丸、錦市場一帶解決。</p>
+<div class="shops">
+<article class="shop"><span class="t">14:30</span><span class="no">3</span><p class="kicker">手染毛線＋蛋糕</p><h3>eenie<span class="en">eenie</span></h3><p class="body">嵯峨野的蛋糕和雜貨店，同時賣手染毛線和手作小物。可以先坐下來吃塊蛋糕，再慢慢挑線。逛完繼續搭嵐電，幾站就到嵐山。</p><dl class="facts"><dt>營業</dt><dd>11:00–19:00</dd><dt>公休</dt><dd>週二</dd><dt>交通</dt><dd>阪急烏丸站搭到大宮站，轉嵐電四条大宮站到有栖川站，約 25 分</dd><dt>位置</dt><dd>右京區嵯峨野有栖川町 40-13，有栖川站往北約 50 公尺</dd><dt>電話</dt><dd>075-861-2288</dd><dt>連結</dt><dd><a href="https://eenie.jp/shop.html" target="_blank" rel="noopener">官網 ↗</a></dd></dl></article>
+</div>
+<h4 class="day teal">10/18 週日</h4>
+<div class="shops">
+<article class="shop teal"><span class="t">11:00</span><span class="no">4</span><p class="kicker">10 公克秤重買</p><h3>AVRIL pépin 京都 一乗寺<span class="en">AVRIL pépin</span></h3><p class="body">1992 年創業的京都線材品牌。整面牆掛滿各種顏色和材質的線，可以 10 公克秤重買，也有材料包、棒針、織布機和初學者體驗課。一乗寺一帶拉麵店很多，午餐可以順便解決。</p><dl class="facts"><dt>營業</dt><dd>10:00–18:30</dd><dt>公休</dt><dd>週三</dd><dt>交通</dt><dd>京都站搭 JR 奈良線到東福寺，轉京阪到出町柳，再轉叡山電鐵到一乗寺，約 40 分</dd><dt>位置</dt><dd>左京區一乗寺高槻町 20-1，一乗寺站走 3 分</dd><dt>電話</dt><dd>075-724-8055</dd><dt>連結</dt><dd><a href="https://avril-pepin.jugem.jp/" target="_blank" rel="noopener">店家部落格 ↗</a></dd></dl></article>
+</div>
+<p class="note">京都車站旁的ユザワヤ京都店已在 2026 年 4 月 29 日關店，不用特地去找。</p>
+</section>
+
+<section class="cal">
+<h2>哪天哪家有開</h2>
+<p class="sub">照每家的公休日對過這趟的日期</p>
+<table>
+<thead><tr><th>日期</th><th>有開</th><th>公休</th></tr></thead>
+<tbody>
+<tr><td>10/11 週日</td><td>ユニオンウール、ユザワヤ、micono、ヴェアルセ</td><td>—</td></tr>
+<tr><td>10/13 週二</td><td>ホビーラホビーレ</td><td>—</td></tr>
+<tr><td>10/17 週六</td><td>イトコバコ、WALNUT、eenie、AVRIL</td><td>—</td></tr>
+<tr><td>10/18 週日</td><td>イトコバコ、eenie、AVRIL</td><td class="off">WALNUT</td></tr>
+</tbody>
+</table>
+<ul class="tips">
+<li><b>營業時間可能臨時調整，</b>出發前看各店官網或 IG 再確認。</li>
+<li><b>毛線很佔空間，</b>行李箱記得留位置。</li>
+</ul>
+</section>
+</main>
+
+<footer class="foot">
+<div>其他資料來源：</div>
+<ul>
+<li><a href="https://www.yuzawaya.co.jp/shop/detail/317.html" target="_blank" rel="noopener">ユザワヤ京都ヨドバシ店關店公告</a></li>
+<li><a href="https://co-trip.jp/article/112646" target="_blank" rel="noopener">ことりっぷ：AVRIL pépin 京都 一乗寺</a></li>
+<li><a href="https://me.tv-osaka.co.jp/shop/specialtyshop/6123/" target="_blank" rel="noopener">MeTAS＋：イトコバコ</a></li>
+</ul>
+<div><a href="./">← 回到行程表</a></div>
+<div>2026 年 10 月整理。地圖與插圖都是示意圖。</div>
+</footer>
+</body>
+</html>
