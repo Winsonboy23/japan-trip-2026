@@ -19,6 +19,9 @@
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.85 var(--sans)}
 a{color:var(--red)}
+a:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:2px}
+h1,h2,h3{text-wrap:balance}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px}
 .cover{background:var(--sheet);border-bottom:1px solid var(--rule);padding:22px 0 34px}
 .mast{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:4px double var(--ink);padding-bottom:10px}
