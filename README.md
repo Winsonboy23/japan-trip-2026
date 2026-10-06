@@ -17,7 +17,7 @@
 - `index.html` — 整個網站（單檔，含樣式與邏輯，字型走 Google Fonts CDN）；網址加 `?g=wang` 就是王家組畫面
 - `wang.html` — 王家組的網址，打開後轉到 `index.html?g=wang`
 - `knit.html`、`knit-kobe.html` — 毛線小旅行與神戶毛線雜誌，照片在 `img/knit-kobe/`
-- `uji-kamogawa.html` — 10/17 宇治・鴨川一日的路線圖與每段距離（從 10/17 卡片最上面的按鈕進去）
+- `uji-kamogawa.html` — 10/17 鴨川・北山與 10/18 宇治的路線圖與每段距離（從 10/17、10/18 卡片最上面的按鈕進去）
 
 ## 推上 GitHub
 
