@@ -115,8 +115,8 @@
   .mroute{font-size:12.5px;color:var(--ink2);margin-top:3px;}
   .mnote{font-size:12px;color:var(--ink3);line-height:1.7;margin-top:4px;}
   .mnote div+div{margin-top:3px;}
-  .mnote .sub{padding-left:13px;position:relative;}
-  .mnote .sub::before{content:"·";position:absolute;left:4px;}
+  .mnote .sub,.dtl .sub{padding-left:13px;position:relative;}
+  .mnote .sub::before,.dtl .sub::before{content:"·";position:absolute;left:4px;}
   .mnote b,.dtl b{color:var(--ink);font-weight:600;}
 
   .stay{display:flex;align-items:center;gap:10px;margin:10px 12px 0;background:#F5F3ED;
@@ -293,15 +293,15 @@ const PLACE={A:{'10/15':'白川鄉・高山','10/16':'高山 → 京都'},B:{'10
 const SEED=[
   {kind:'day',date:'10/10',weekday:'六',place:'神戶'},
   {kind:'stop',type:'flight',title:'Peach MM24　台北 TPE → 大阪 KIX',time:'09:30 → 13:20',detail:'2h50m｜Winson・Maggie 兩人｜13:20 抵達 KIX 第 2 航廈',tag:'',status:'ok',who:['W','M']},
-  {kind:'move',from:'關西機場 T2',to:'神戶波多比亞',mode:'bus',duration:'1h40m / 1h15m',note:'兩案都現場買票，不預訂\nA 利木津｜¥2,200＋Port Liner ¥250｜約 16:00 到\n- T2 一樓巴士站買票或上車刷卡・神戶線 2026/9/1 改點，看現場時刻表，約 15–20 分一班\n- 三宮（ミント神戸 1F）下車 → 走 5 分到 Port Liner 三宮站 → 市民広場（11 分）\nB 高速船｜套票 ¥1,880（含 Port Liner）｜約 15:35 到\n- 出關走 E 門外側售票處（6:00–0:15）買套票，接駁車 14:35 → 14:45 開船 → 15:16 神戶機場\n- 外國人 ¥500 優惠票 2026/6/30 已停售，票價就是 ¥1,880\n- 套票＝船票＋Port Liner 單程票（神戶機場至三宮區間），市民広場出站即可\n- 滿席時預約者優先，滿了就改搭 A',who:['W','M']},
-  {kind:'stop',type:'hotel',title:'神戶波多比亞飯店 Kobe Portopia Hotel',time:'',detail:'10/10 → 10/12・退房 11:00｜Port Liner「市民廣場站」旁｜三宮與飯店之間有免費接駁車，每 20 分一班',tag:'',status:'ok',who:['W','M'],map:'神戸ポートピアホテル'},
+  {kind:'move',from:'關西機場 T2',to:'神戶波多比亞',mode:'bus',duration:'1h40m / 1h15m',note:'兩案都現場買票，不預訂\nA 利木津｜¥2,200＋Port Liner ¥250｜約 16:00 到\n- T2 一樓巴士站買票或上車刷卡・神戶線 2026/9/1 改點，看現場時刻表，約 15–20 分一班\n- 三宮（ミント神戸 1F）下車 → 走 5 分到 Port Liner 三宮站 → 市民広場（11 分）\n- 不想拖行李走路，也可以在同一個巴士總站 8 號乘車處搭飯店免費接駁車（:00／:20／:40 發，約 20 分）\nB 高速船｜套票 ¥1,880（含 Port Liner）｜約 15:35 到\n- 出關走 E 門外側售票處（6:00–0:15）買套票，接駁車 14:35 → 14:45 開船 → 15:16 神戶機場\n- 外國人 ¥500 優惠票 2026/6/30 已停售，票價就是 ¥1,880\n- 套票＝船票＋Port Liner 單程票（神戶機場至三宮區間），市民広場出站即可\n- 滿席時預約者優先，滿了就改搭 A',who:['W','M']},
+  {kind:'stop',type:'hotel',title:'神戶波多比亞飯店 Kobe Portopia Hotel',time:'',detail:'10/10 → 10/12・退房 11:00｜Port Liner「市民廣場站」旁\n免費接駁車：到三宮約 20 分、新神戶約 30 分，不用預約，客滿就等下一班\n- 飯店發 7:20–22:00，每小時 :00／:20／:40｜正門出去左手邊\n- 三宮發 8:00–21:40，每小時 :00／:20／:40｜ミント神戸 1F 巴士總站 8 號乘車處\n- 新神戶站發 7:50–21:30，每小時 :10／:30／:50｜2F 出驗票口，經過商店後走樓梯下去左手邊',tag:'',status:'ok',who:['W','M'],map:'神戸ポートピアホテル'},
   {kind:'stop',type:'spot',title:'頂樓 ソラフネ神戸 看日落',time:'17:00',detail:'飯店屋頂露台，地上 110 公尺｜10 月週末 17:00–22:00，每場 40 分，日落約 17:25｜TableCheck 預約，當天 21:00 前取消免費；沒訂到，現場有空位也能進｜住客 ¥1,500 含一杯飲料，瓶裝或罐裝，可加點，沒有餐點',tag:'夜景',status:'pend',who:['W','M'],map:'神戸ポートピアホテル'},
-  {kind:'move',from:'飯店 17:50',to:'三宮',mode:'train',duration:'11 分・¥250',note:'Port Liner 市民広場 → 三宮\n- 也可以搭飯店免費接駁車，約 20 分，在ミント神戸 1F 下車',who:['W','M']},
+  {kind:'move',from:'飯店 17:50',to:'三宮',mode:'train',duration:'11 分・¥250',note:'Port Liner 市民広場 → 三宮\n- 也可以搭飯店免費接駁車 18:00 那班（正門出去左手邊），約 20 分，在ミント神戸 1F 下車',who:['W','M']},
   {kind:'stop',type:'meal',title:'三宮站周邊 找吃的・逛街',time:'18:30',detail:'晚餐沒訂位，到三宮站周邊找吃的｜店家多半 20:00 左右關，先逛センター街、神戸マルイ（到 20:30）、さんちか（到 20:00），再吃晚餐｜ミント神戸開到 21:00，ドン・キホーテ三宮店 24 小時｜回程：免費接駁車在ミント神戸 1F 8 號乘車處，三宮末班 21:40，錯過就搭 Port Liner',tag:'晚餐',status:'',who:['W','M'],map:'三ノ宮駅'},
 
   {kind:'day',date:'10/11',weekday:'日',place:'神戶'},
   {kind:'link',label:'🧶 神戶毛線雜誌・三家店的照片與路線',url:'knit-kobe.html',who:['W','M']},
-  {kind:'move',from:'飯店 10:00',to:'三宮',mode:'bus',duration:'約 20 分・免費',note:'飯店免費接駁車，每 20 分一班（:00／:20／:40 發）\n- 在ミント神戸 1F 巴士總站下車',who:['W','M']},
+  {kind:'move',from:'飯店 10:00',to:'三宮',mode:'bus',duration:'約 20 分・免費',note:'飯店免費接駁車，每 20 分一班（:00／:20／:40 發）\n- 飯店正門出去左手邊上車\n- 在ミント神戸 1F 巴士總站下車',who:['W','M']},
   {kind:'stop',type:'spot',title:'ユニオンウール 毛線行',time:'10:30',detail:'神戶老字號毛線行，世界各國的毛線和手藝材料都有｜三宮站走約 3 分，北長狭通 1-30-16｜10:00–19:00，週一公休',tag:'毛線',status:'',who:['W','M'],map:'ユニオンウール 神戸'},
   {kind:'stop',type:'spot',title:'三宮中心街 → 元町商店街',time:'11:00',detail:'兩條拱廊商店街連在一起，從三宮一路逛到元町，沿線有ミント神戸、さんちか地下街、大丸神戶（舊居留地）',tag:'逛街',status:'',who:['W','M'],map:'三宮センター街'},
   {kind:'stop',type:'meal',title:'放香堂加琲 咖啡',time:'11:30',detail:'元町商店街裡，重現明治時代「日本最早的咖啡店」的石臼磨咖啡｜元町通 3-10-6｜9:00–18:00，不定休｜☎ 078-321-5454',tag:'咖啡',status:'',who:['W','M'],map:'放香堂加琲 神戸市中央区元町通3-10-6'},
@@ -314,7 +314,7 @@ const SEED=[
   {kind:'stop',type:'spot',title:'美利堅公園・神戶港塔',time:'17:25',detail:'日落約 17:25｜BE KOBE 地標拍照，上塔需另購票',tag:'日落',status:'',who:['W','M'],map:'メリケンパーク'},
   {kind:'move',from:'美利堅公園',to:'モーリヤ本店',mode:'walk',duration:'約 20 分',note:'也可以走到 JR 元町，搭 1 站到三ノ宮',who:['W','M']},
   {kind:'stop',type:'meal',title:'モーリヤ本店 神戶牛晚餐',time:'18:30',detail:'1885 年開業的神戶牛老店，三宮站走 3 分｜神戶牛套餐 ¥9,090 起，神戶牛臀肉 150g 套餐 ¥12,000｜最晚 20:30 入店｜一休、ホットペッパー網路訂，或 ☎ 078-391-4603',tag:'晚餐',status:'pend',who:['W','M'],map:'モーリヤ 本店 神戸'},
-  {kind:'move',from:'三宮 20:20',to:'飯店',mode:'bus',duration:'約 20 分・免費',note:'ミント神戸 1F 巴士總站 8 號乘車處，每 20 分一班\n- 三宮末班 21:40',who:['W','M']},
+  {kind:'move',from:'三宮 20:20',to:'飯店',mode:'bus',duration:'約 20 分・免費',note:'ミント神戸 1F 巴士總站 8 號乘車處，每 20 分一班（:00／:20／:40 發）\n- 三宮末班 21:40',who:['W','M']},
   {kind:'stop',type:'spot',title:'30F GOCOCU 夜間酒吧',time:'21:00',detail:'週末 21:00–23:00，限 20 歲以上｜葡萄酒、調酒、兵庫清酒單點｜看神戶夜景收尾',tag:'酒吧',status:'',who:['W','M'],map:'神戸ポートピアホテル'},
 
   {kind:'day',date:'10/12',weekday:'一',place:'大阪'},
@@ -400,6 +400,8 @@ let autoScrolled=false;    /* 載入時捲到今天對應的日期卡，只做�
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 /* 行程資料裡用 **文字** 標粗體（劃位車次用），先 esc 再轉 <b> */
 function fmt(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');}
+/* 多行文字：換行分段，「- 」開頭的行縮排成小點（交通備註和地點說明共用） */
+function lines(s){return s.split('\n').map(l=>l.startsWith('- ')?`<div class="sub">${fmt(l.slice(2))}</div>`:`<div>${fmt(l)}</div>`).join('');}
 /* 只藏「有 Winson 且全是 SECRET 成員」的項目：Maggie 自己的班機（who:['M']）照常顯示 */
 function isSecret(e){const w=e.who||['all'];return !w.includes('all')&&w.includes('W')&&w.every(id=>SECRET.includes(id));}
 function groupsOf(e){const w=e.who||['all'];if(w.includes('all'))return G_ORDER;return G_ORDER.filter(g=>GROUPS[g].members.some(id=>w.includes(id)));}
@@ -429,7 +431,7 @@ function buildFilter(){
 /* 卡片展開後才看得到的內容：說明、標籤、同行組別、地圖 */
 function panelInner(e){
   let s='';
-  if(e.detail)s+=`<div class="dtl">${fmt(e.detail)}</div>`;
+  if(e.detail)s+=`<div class="dtl">${lines(e.detail)}</div>`;
   const chips=[];
   /* 只標「待訂」提醒；訂好的不用章 */
   if(e.status==='pend')chips.push('<span class="status pend">待訂</span>');
@@ -453,8 +455,7 @@ function moveHtml(e){
   const route=(e.from||e.to)?`${esc(e.from||'')} → ${esc(e.to||'')}`:'';
   const grp=(filter==='all'&&e.who&&!e.who.includes('all'))
     ?`<span class="mgrp">${groupsOf(e).map(g=>esc(GROUPS[g].name)).join('/')}</span>`:'';
-  const li=l=>l.startsWith('- ')?`<div class="sub">${fmt(l.slice(2))}</div>`:`<div>${fmt(l)}</div>`;
-  const note=e.note?`<div class="mnote">${e.note.split('\n').map(li).join('')}</div>`:'';
+  const note=e.note?`<div class="mnote">${lines(e.note)}</div>`:'';
   return `<div class="mrow"><div class="mtop"><span class="mmode">${esc(m[1])}</span>`
     +`<span class="mdur">${esc(e.duration||'')}</span>${grp}</div>`
     +(route?`<div class="mroute">${route}</div>`:'')+note+`</div>`;
