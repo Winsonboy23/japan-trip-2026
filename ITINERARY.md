@@ -11,6 +11,8 @@
 
 10/12 於大阪全員會合，10/15 金澤退房後分開：飛驒高山組走高山，王家組先回京都。
 
+網站：飛驒高山組看首頁 <https://winsonboy23.github.io/japan-trip-2026/>，王家組看 <https://winsonboy23.github.io/japan-trip-2026/wang.html>。
+
 ---
 
 ## 逐日行程
