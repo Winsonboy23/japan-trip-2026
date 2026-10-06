@@ -245,14 +245,14 @@
       <tr><td>10/12 Tai・芝芝・王家 ×3 關西機場 → 大阪（関空快速）</td><td>¥1,210</td></tr>
       <tr data-g="A"><td>10/14 立山黑部 富山地鐵往返＋纜車巴士往返（台南王）</td><td>約 ¥7,000</td></tr>
       <tr><td>10/19 Maggie・Tai・芝芝・王家 ×3 京都 → 關西機場（はるか片道きっぷ）</td><td>¥2,200</td></tr>
-      <tr><td>10/17 鴨川・北山：地下鐵 2 段</td><td>約 ¥520＋計程車</td></tr>
+      <tr><td>10/17 宇治・鴨川：JR、京阪、地下鐵</td><td>約 ¥920＋兩趟計程車分攤</td></tr>
+      <tr><td>10/17 平等院</td><td>¥700（鳳凰堂內部 +¥300）</td></tr>
       <tr><td>10/17 WIFE&amp;HUSBAND 野餐籃（已預約 GRNYY9）</td><td>¥1,200／人</td></tr>
-      <tr><td>10/18 麵包・宇治：地下鐵 2 段＋JR 宇治來回</td><td>約 ¥960</td></tr>
-      <tr><td>10/18 平等院</td><td>¥700（鳳凰堂內部 +¥300）</td></tr>
+      <tr><td>10/18 京都市內公車地鐵</td><td>另計</td></tr>
     </table>
 
-    <h3>10/17 鴨川・北山、10/18 宇治</h3>
-    <p>10/17 整天在烏丸線沿線往北：09:00 出門穿過京都御苑到鴨川三角洲、下鴨神社，12:00 WIFE&amp;HUSBAND 河邊野餐（已預約 GRNYY9），下午到烏丸御池試 AMAM DACOTAN 現場排隊，再走到祇園看夕陽、先斗町晚餐。10/18 麵包店之後 13:45 搭 JR 去宇治，先去 16:20 關門的宇治上神社，再中村藤吉、平等院，17:36 回京都站剛好買はるか票。路線圖和每段距離在 10/17、10/18 卡片最上面的按鈕。這兩天的路線都不在周遊券內；剩下的第 6 次劃位留給 10/15 巴士客滿時的ひだ14号。</p>
+    <h3>10/17 宇治・鴨川一日</h3>
+    <p>09:00 出門先搭 JR 衝宇治平等院（10:40 一定要走），京阪到出町柳換計程車，12:00 WIFE&amp;HUSBAND 河邊野餐（已預約 GRNYY9）。下午沿賀茂川走到三角洲，地下鐵到烏丸御池試 AMAM DACOTAN 現場排隊，再走到祇園看夕陽、先斗町晚餐。宇治上神社、朝霧橋這次放掉。路線圖和每段距離在 10/17 卡片最上面的按鈕。這天的路線都不在周遊券內；剩下的第 6 次劃位留給 10/15 巴士客滿時的ひだ14号。</p>
 
     <h3 data-g="B">王家組：也買高山・北陸周遊券（10/14 白川鄉一日遊）</h3>
     <ul data-g="B">
@@ -377,19 +377,19 @@ const SEED=[
   {kind:'move',from:'京都 Airbnb 17:35',to:'JR 京都伊勢丹',mode:'walk',duration:'約 20 分',note:'走到八条口，穿過南北自由通路到中央口\n- 伊勢丹在中央口西側，搭電梯上 10F',who:['W','M','T','Z']},
   {kind:'stop',type:'meal',title:'炭火串焼き こけこっこ 燒鳥晚餐',time:'18:00',detail:'食べログ已訂 4 位（台南王）｜京都市下京区東塩小路町 901 JR 京都伊勢丹 10F｜京都站直結｜☎ 075-365-3390｜火車誤點走備案會 18:09 才到，先打電話或在食べログ改時間',tag:'晚餐',status:'ok',who:['W','M','T','Z'],map:'こけこっこ ジェイアール京都伊勢丹 10F'},
 
-  {kind:'day',date:'10/17',weekday:'六',place:'鴨川・北山'},
-  {kind:'link',label:'🗺️ 鴨川・宇治兩日：路線圖與每段距離',url:'uji-kamogawa.html#d17',who:['all']},
-  {kind:'move',from:'京都 Airbnb 09:00',to:'丸太町 09:28',mode:'train',duration:'約 30 分',note:'步行 15 分到京都站，穿過南北自由通路到中央口地下\n- 地下鐵烏丸線 京都 → 丸太町，4 站約 8 分（約 ¥260，刷 IC）\n- 丸太町站出口就是京都御苑的西南角',who:['all']},
-  {kind:'stop',type:'spot',title:'京都御苑',time:'09:30–10:05',detail:'從南往北穿過御苑 1.4 km，經過京都御所的外牆，從東北角的石薬師御門出去｜免費、隨時開放，砂石路好走',tag:'',status:'',who:['all'],map:'京都御苑'},
-  {kind:'move',from:'石薬師御門',to:'鴨川三角洲',mode:'walk',duration:'約 10 分・700 m',note:'沿今出川通往東到賀茂大橋，下河堤',who:['all']},
-  {kind:'stop',type:'spot',title:'鴨川三角洲（鴨川デルタ）',time:'10:15–10:35',detail:'賀茂川和高野川在這裡會合成鴨川｜河面有烏龜和千鳥形狀的跳石，可以踩過河',tag:'',status:'',who:['all'],map:'鴨川デルタ'},
-  {kind:'move',from:'三角洲',to:'下鴨神社',mode:'walk',duration:'約 12 分・900 m',note:'往北走進糺之森的參道',who:['all']},
-  {kind:'stop',type:'spot',title:'下鴨神社・糺之森',time:'10:45–11:25',detail:'世界遺產，免費參拜｜糺之森是原始林參道，走到本殿來回約 1 km｜河合神社（美麗祈願）在參道入口旁',tag:'世界遺產',status:'',who:['all'],map:'下鴨神社'},
-  {kind:'move',from:'下鴨神社 11:25',to:'WIFE&HUSBAND 11:45',mode:'walk',duration:'約 18 分・1.3 km',note:'從西側出口走下鴨本通往北到北大路通，往西過北大路橋，店在橋的西側',who:['all']},
+  {kind:'day',date:'10/17',weekday:'六',place:'宇治・鴨川'},
+  {kind:'link',label:'🗺️ 宇治・鴨川一日：路線圖與每段距離',url:'uji-kamogawa.html',who:['all']},
+  {kind:'move',from:'京都 Airbnb 09:00',to:'宇治 約 09:40',mode:'train',duration:'約 40 分',note:'步行 15 分到京都站，穿過南北自由通路到 JR 奈良線 8–10 號月台\n- 09:20 左右的車：みやこ路快速 16 分、普通車 22 分，約每 10–15 分一班（¥240）\n- 周遊券不能用，刷 IC',who:['all']},
+  {kind:'move',from:'JR 宇治站',to:'平等院',mode:'walk',duration:'約 12 分・900 m',note:'出站往東走宇治橋通り，到宇治橋頭右轉進平等院表参道，走到底',who:['all']},
+  {kind:'stop',type:'spot',title:'平等院',time:'09:52–10:40',detail:'門票 ¥700（含鳳翔館）｜鳳凰堂內部另付 ¥300，09:10 起現場發號、每梯 50 人，**一進門先去鳳凰堂旁領號**：拿到 10:30 前的場次就進去，再晚就只看庭園和鳳翔館｜**10:40 一定要出發**，W&H 12:00 的預約不能遲到',tag:'世界遺產',status:'',who:['all'],map:'平等院'},
+  {kind:'move',from:'平等院 10:40',to:'京阪宇治站 10:50',mode:'walk',duration:'約 10 分・750 m',note:'回表参道，在宇治橋通り口的茶屋外帶抹茶，過宇治橋到東岸，京阪宇治站就在橋頭\n- 宇治上神社、朝霧橋這次沒時間，時間真的有多再去（約 +45 分）',who:['all']},
+  {kind:'move',from:'京阪宇治 10:55',to:'出町柳 11:32',mode:'train',duration:'37 分・¥460',note:'京阪宇治線坐到終點中書島，換京阪本線往「出町柳」（特急、快速急行、急行都可以），坐到終點',who:['all']},
+  {kind:'move',from:'出町柳 11:35',to:'WIFE&HUSBAND 11:45',mode:'taxi',duration:'約 7 分・1.9 km',note:'站前叫兩台車到北大路橋西詰，共約 ¥2,000\n- 想走路：沿賀茂川西岸往北 1.7 km、25 分，11:57 才到，太趕',who:['all']},
   {kind:'stop',type:'meal',title:'WIFE&HUSBAND 河邊野餐',time:'12:00–13:30',detail:'**已預約 12:00，預約號碼 GRNYY9**，7 人，11:45 到｜店家出借野餐籃：保溫瓶咖啡、脆餅和陶杯，每人 ¥1,200、可用 1.5 小時，帶到店前的賀茂川河堤野餐，13:30 歸還｜京都市北区小山下内河原町 106-6，北大路橋西側｜10:00–17:00｜☎ 075-201-7324',tag:'野餐',status:'ok',who:['all'],map:'WIFE&HUSBAND 京都市北区小山下内河原町106-6'},
-  {kind:'move',from:'WIFE&HUSBAND 13:30',to:'烏丸御池 13:55',mode:'train',duration:'約 25 分',note:'沿北大路通往西走 7 分（500 m）到地下鐵北大路站\n- 烏丸線 北大路 → 烏丸御池，4 站約 10 分（約 ¥260）\n- 想走河邊：沿賀茂川、鴨川西岸往南到丸太町橋 3 km，再往西走丸太町通、烏丸通到六角通 1.7 km，約 65 分，14:40 到 AMAM',who:['all']},
-  {kind:'stop',type:'spot',title:'六角堂・新風館',time:'13:55–14:45',detail:'等 15:00 的空檔｜六角堂（頂法寺）在 AMAM 隔壁街，免費｜新風館在烏丸御池站旁，有咖啡店和選物店',tag:'',status:'',who:['all'],map:'六角堂 京都'},
-  {kind:'stop',type:'meal',title:'AMAM DACOTAN 現場排隊',time:'14:45–15:45',detail:'15:00 起開放現場排隊，排在線上登記的客人後面，店家說 15:00 只是大概時間｜14:45 先去排｜麵包賣完為止，週六下午可能剩不多，買得到就賺到，**排太久就放棄**，不影響後面的行程｜京都市中京区六角通室町東入骨屋町 141｜08:00–19:00',tag:'試試看',status:'',who:['all'],map:'AMAM DACOTAN 京都 六角通室町東入骨屋町141'},
+  {kind:'move',from:'WIFE&HUSBAND 13:30',to:'鴨川三角洲 13:55',mode:'walk',duration:'約 25 分・1.7 km',note:'沿賀茂川西岸河堤往南走（下游方向），經過出雲路橋到賀茂大橋',who:['all']},
+  {kind:'stop',type:'spot',title:'鴨川三角洲（鴨川デルタ）',time:'13:55–14:10',detail:'賀茂川和高野川在這裡會合成鴨川｜河面有烏龜和千鳥形狀的跳石，可以踩過河｜可選：往北走 12 分到下鴨神社（世界遺產），來回加參拜約 50 分，AMAM 改 15:00 過後到',tag:'',status:'',who:['all'],map:'鴨川デルタ'},
+  {kind:'move',from:'鴨川三角洲 14:10',to:'烏丸御池 14:32',mode:'train',duration:'約 20 分',note:'沿今出川通往西走 15 分（1.2 km）到地下鐵今出川站\n- 烏丸線 今出川 → 烏丸御池，2 站約 4 分（約 ¥220）\n- 出站沿烏丸通往南走，到六角通往西轉',who:['all']},
+  {kind:'stop',type:'meal',title:'AMAM DACOTAN 現場排隊',time:'14:45–15:45',detail:'15:00 起開放現場排隊，排在線上登記的客人後面，店家說 15:00 只是大概時間｜14:45 先去排，等的時候輪流去隔壁街的六角堂（免費）｜麵包賣完為止，週六下午可能剩不多，買得到就賺到，**排太久就放棄**，不影響後面的行程｜京都市中京区六角通室町東入骨屋町 141｜08:00–19:00',tag:'試試看',status:'',who:['all'],map:'AMAM DACOTAN 京都 六角通室町東入骨屋町141'},
   {kind:'move',from:'AMAM 15:45',to:'祇園 白川 16:10',mode:'walk',duration:'約 27 分・2 km',note:'沿六角通、三条通往東走到三条大橋 1.5 km\n- 過橋後沿縄手通往南 500 m 到白川',who:['all']},
   {kind:'stop',type:'spot',title:'祇園：白川・巽橋 → 花見小路 → 八坂神社',time:'16:10–17:00',detail:'白川沿岸的石板路和町家 → 走花見小路往南到建仁寺前（250 m）→ 折回四条通往東走到底是八坂神社（450 m）｜最後沿四条通往西走 650 m、9 分回四条大橋',tag:'',status:'',who:['all'],map:'巽橋 祇園'},
   {kind:'stop',type:'spot',title:'四条大橋河岸看夕陽',time:'17:00–17:30',detail:'10 月中日落約 17:20｜下到西岸河堤坐著看，就是大家「等間隔」坐成一排的那段',tag:'日落',status:'',who:['all'],map:'四条大橋'},
@@ -397,8 +397,7 @@ const SEED=[
   {kind:'move',from:'先斗町 19:30',to:'京都 Airbnb',mode:'taxi',duration:'約 15 分・4 km',note:'叫兩台計程車，給司機看地址：京都市南区東九条中札辻町 23-1（每台約 ¥1,600–2,000）\n- 或搭京阪祇園四条 → 東福寺，換 JR 奈良線一站到京都，再走 12 分',who:['all']},
   {kind:'stop',type:'hotel',title:'京都 Airbnb',time:'',detail:'住宿',tag:'',status:'ok',who:['all'],map:'23-1 Higashikujo Nakafudanotsujicho, Minami Ward, Kyoto 601-8026'},
 
-  {kind:'day',date:'10/18',weekday:'日',place:'京都麵包・宇治'},
-  {kind:'link',label:'🗺️ 宇治：路線圖與每段距離',url:'uji-kamogawa.html#d18',who:['all']},
+  {kind:'day',date:'10/18',weekday:'日',place:'京都・麵包'},
   {kind:'move',from:'京都 Airbnb 10:00',to:'丸太町 10:30',mode:'train',duration:'約 30 分',note:'步行 15 分到京都站，穿過南北自由通路到中央口地下\n- 地下鐵烏丸線 京都 → 丸太町，4 站約 8 分（約 ¥260，刷 IC）\n- 出站沿丸太町通往西走約 5 分（360 m）',who:['all']},
   {kind:'stop',type:'meal',title:'ポワンプールポワン 府庁前店',time:'10:35',detail:'1989 年開的老店，2022 年改裝成甜點麵包店，可以內用｜京都市上京区丸太町通新町上ル春帯町 345｜10:00–18:30｜公休日網站寫法不一：多數寫週一、週二，有一個寫週日、週一，**出發前打電話或看 Instagram 確認 10/18 有開**｜☎ 075-222-1835',tag:'麵包',status:'pend',who:['all'],map:'ポワンプールポワン 府庁前店'},
   {kind:'move',from:'ポワンプールポワン 11:05',to:'OUI.',mode:'walk',duration:'約 25 分・1.9 km',note:'沿丸太町通往東到烏丸通，沿烏丸通往南過御池通，在三条通往東走到柳馬場通，再往南兩個路口到蛸薬師通\n- 不想走：地下鐵丸太町 → 四条（2 站），出站往東走約 8 分',who:['T','Z','K']},
@@ -408,19 +407,8 @@ const SEED=[
   {kind:'stop',type:'spot',title:'🧣 BUNZABURO 片山文三郎商店',time:'12:20',detail:'Winson・Maggie 兩人｜京都的絞染品牌，絞り染め的圍巾、披肩和衣服｜本店是 1935 年的建築，2025 年 8 月整修重新開幕｜中京区蛸薬師通烏丸西入橋弁慶町 221｜阪急烏丸站 22 號出口走 5 分｜10:00–18:30，無公休｜☎ 075-221-2666',tag:'絞染',status:'',who:['W','M'],open:true,map:'片山文三郎商店 京都本店'},
   {kind:'move',from:'BUNZABURO 13:00',to:'OUI.',mode:'walk',duration:'約 7 分・550 m',note:'沿蛸薬師通往東走，OUI. 買完再往南一條街到錦市場和大家會合',who:['W','M'],open:true},
   {kind:'stop',type:'meal',title:'OUI.（ウイ）',time:'11:30',detail:'啤酒廠 Derailleur Brew Works 開的麵包咖啡店，用釀酒剩下的麥芽粕做麵包｜招牌是發酵奶油鹽麵包和牛奶吐司，有內用｜京都市中京区蛸薬師通柳馬場東入油屋町 121-1｜08:00–17:00，不定休（看 Instagram）｜☎ 075-746-4429',tag:'麵包',status:'pend',who:['all'],map:'OUI. 京都 蛸薬師通柳馬場東入油屋町121-1'},
-  {kind:'stop',type:'spot',title:'錦市場 午餐',time:'12:00–13:20',detail:'OUI. 往南一條街就是錦小路，錦市場在寺町到高倉之間，邊走邊吃當午餐｜往東走到底是寺町、新京極商店街｜13:00 Winson・Maggie 從 BUNZABURO 走過來會合，13:20 一起出發去宇治',tag:'午餐',status:'',who:['all'],map:'錦市場'},
-  {kind:'move',from:'錦市場 13:20',to:'宇治 14:01',mode:'train',duration:'約 40 分',note:'走 6 分到地下鐵四条站 → 烏丸線 2 站到京都（¥220），走到 JR 奈良線 8–10 號月台\n- **JR 奈良線みやこ路快速 13:45 → 宇治 14:01**（16 分・¥240，約 30 分一班，只停東福寺、六地蔵）\n- 錯過就搭普通車，晚 5–10 分到；周遊券已過期，刷 IC',who:['all']},
-  {kind:'move',from:'JR 宇治站',to:'宇治上神社',mode:'walk',duration:'約 18 分・1.4 km',note:'出站往東走宇治橋通り，**過宇治橋**到東岸\n- 經過京阪宇治站，走さわらびの道往南上坡',who:['all']},
-  {kind:'stop',type:'spot',title:'宇治神社・宇治上神社',time:'14:20–14:50',detail:'宇治上神社是世界遺產，本殿是日本現存最古老的神社建築｜免費，09:00–16:20，**16:20 關門，所以先來**',tag:'世界遺產',status:'',who:['all'],map:'宇治上神社'},
-  {kind:'move',from:'宇治上神社',to:'朝霧橋',mode:'walk',duration:'約 4 分・250 m',note:'下坡經過宇治神社，過朝霧橋到島上',who:['all']},
-  {kind:'stop',type:'spot',title:'朝霧橋・塔之島・橘島',time:'14:55',detail:'宇治川中間的兩座小島，看河景、拍照｜十三重石塔在塔之島上',tag:'',status:'',who:['all'],map:'朝霧橋 宇治'},
-  {kind:'move',from:'塔之島',to:'中村藤吉 平等院店',mode:'walk',duration:'約 8 分・550 m',note:'沿島往下游走，過喜撰橋到西岸，沿あじろぎの道',who:['all']},
-  {kind:'stop',type:'meal',title:'中村藤吉 平等院店',time:'15:10–15:50',detail:'抹茶甜點和冰品，窗外是宇治川｜週日下午一樣要排隊，7 人可能分兩桌；排太久就外帶',tag:'抹茶',status:'',who:['all'],map:'中村藤吉 平等院店'},
-  {kind:'move',from:'中村藤吉',to:'平等院',mode:'walk',duration:'約 2 分・150 m',note:'回到表参道，入口就在旁邊',who:['all']},
-  {kind:'stop',type:'spot',title:'平等院',time:'16:00–17:00',detail:'門票 ¥700（含鳳翔館，最後入館 16:45），庭園最後入場 17:15｜鳳凰堂內部另付 ¥300，09:10 起現場發號、每梯 50 人，**週日下午大概已經發完**，到了先問一下',tag:'世界遺產',status:'',who:['all'],map:'平等院'},
-  {kind:'move',from:'平等院 17:00',to:'京都站 17:36',mode:'train',duration:'約 35 分',note:'表参道 → 宇治橋通り，走 12 分（900 m）到 JR 宇治站\n- **JR 奈良線 17:20 → 京都 17:36**（¥240）',who:['all']},
-  {kind:'stop',type:'note',title:'京都站買はるか片道きっぷ',time:'17:40',detail:'從宇治回來直接在站內買｜Maggie・Tai・芝芝・王家 ×3 共 6 人帶護照到みどりの窓口（06:30–21:00）或 PASSPORT 售票機買，¥2,200 含一次指定席，當場劃 10/19 はるか17号 10:00｜不劃也能搭自由席，但六人要同班就一定要劃｜10/12 已線上預購並領票的話跳過',tag:'',status:'pend',who:['M','T','Z','K']},
-  {kind:'move',from:'京都站 18:00',to:'京都 Airbnb',mode:'walk',duration:'約 12 分',note:'八条口走回 Airbnb，晚餐自由',who:['all']},
+  {kind:'stop',type:'spot',title:'錦市場（順路）',time:'12:00',detail:'OUI. 往南一條街就是錦小路，錦市場在寺町到高倉之間，邊走邊吃當午餐｜店家大多傍晚就關｜往東走到底是寺町、新京極商店街｜回程從四条站搭地下鐵 2 站回京都站',tag:'午餐',status:'',who:['all'],map:'錦市場'},
+  {kind:'stop',type:'note',title:'京都站買はるか片道きっぷ',time:'傍晚',detail:'Maggie・Tai・芝芝・王家 ×3 共 6 人帶護照到京都站みどりの窓口（06:30–21:00）或 PASSPORT 售票機買，¥2,200 含一次指定席，當場劃 10/19 はるか17号 10:00｜不劃也能搭自由席，但六人要同班就一定要劃｜10/12 已線上預購並領票的話跳過',tag:'',status:'pend',who:['M','T','Z','K']},
   {kind:'stop',type:'hotel',title:'京都 Airbnb',time:'',detail:'住宿',tag:'',status:'ok',who:['all'],map:'23-1 Higashikujo Nakafudanotsujicho, Minami Ward, Kyoto 601-8026'},
 
   {kind:'day',date:'10/19',weekday:'一',place:'京都 → 關西機場'},
