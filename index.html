@@ -496,6 +496,9 @@ function moveHtml(e){
     +(route?`<div class="mroute">${route}</div>`:'')+note+`</div>`;
 }
 function hhmm(t){const m=(t||'').match(/\d{1,2}:\d{2}/);return m?m[0]:'';}
+/* 一段文字裡的所有時間；mins 換成分鐘比大小，避免 9:30 排在 10:00 後面 */
+function allTimes(s){return (s||'').match(/\d{1,2}:\d{2}/g)||[];}
+function mins(t){const [h,m]=t.split(':').map(Number);return h*60+m;}
 
 function render(){
   const tl=document.getElementById('tl');const E=SEED;
@@ -509,7 +512,9 @@ function render(){
     const stops=items.filter(e=>e.kind==='stop');
     const acts=stops.filter(e=>e.type!=='hotel');
     const n=acts.length;
-    const ts=acts.map(e=>hhmm(e.time)).filter(Boolean).sort();
+    /* 右上角時間：從出門算到最後結束，交通的出發、抵達和行程的結束時間都算，住宿不算 */
+    const ts=items.flatMap(e=>e.kind==='move'?[...allTimes(e.from),...allTimes(e.to)]
+      :acts.includes(e)?allTimes(e.time):[]).sort((a,b)=>mins(a)-mins(b));
     const range=ts.length?(ts[0]===ts[ts.length-1]?ts[0]:ts[0]+'–'+ts[ts.length-1]):'';
     const pend=stops.some(e=>e.status==='pend');
     h+=`<div class="daycard${closedSet.has(d.date)?' closed':''}" data-day="${esc(d.date)}">`
